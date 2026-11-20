@@ -1,0 +1,26 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The same uv as the lock file was written with; uv then installs the
+      # Python of .python-version and the tools of uv.lock, nothing floating.
+      - name: Install uv
+        run: pipx install uv==0.12.0
+
+      - name: Install the pinned tools
+        run: uv sync --frozen
+
+      # Lints the schema, validates the concepts against it, loads them with
+      # the generated classes, checks the reserved words and refuses any
+      # generated file that is not what the sources build.
+      - name: Check the model
+        run: uv run pytest
