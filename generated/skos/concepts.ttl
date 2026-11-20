@@ -1,0 +1,361 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix protein_function_prediction: <https://w3id.org/protein-function-prediction-semantic-model/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+protein_function_prediction:annotation_set a skos:Concept ;
+    skos:definition "One loaded release of an annotation source, for example GOA 211."@en ;
+    skos:example "GOA 211" ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "annotation set"@en,
+        "conjunto de anotaciones"@es ;
+    protein_function_prediction:external_match "Gene Ontology: GAF 2.2 file" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:arm a skos:Concept ;
+    skos:definition "One evaluated configuration within an exploration; never a family nor a method."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "arm"@en,
+        "configuración evaluada"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:aspect a skos:Concept ;
+    skos:definition "A branch of GO: biological process, molecular function or cellular component, with the codes P, F and C."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "aspect"@en,
+        "aspecto"@es ;
+    protein_function_prediction:external_match "Gene Ontology: aspect" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:bank a skos:Concept ;
+    skos:altLabel "embedding bank"@en,
+        "lexicon bank"@en ;
+    skos:definition "Representations stored per member of a photo and verified by a manifest (ADR-D62, D63)."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "bank"@en,
+        "banco"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:cell a skos:Concept ;
+    skos:definition "The reporting unit: one knowledge category by one aspect; nine per window."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "cell"@en,
+        "celda"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:count_map a skos:Concept ;
+    skos:definition "Per aspect, counts of GO terms per unit at t0, p = (K + m pi) / (N + m), read for the targets with a witness."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "count map"@en,
+        "mapa de conteos"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "method" .
+
+protein_function_prediction:cut_photo a skos:Concept ;
+    skos:definition "The declared member sets of a cut (ADR-D59), with a sha256 manifest, the job and the code revision that built them."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "cut photo"@en,
+        "foto del corte"@es ;
+    protein_function_prediction:external_match "W3C PROV-O: prov:Collection" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:decision_record a skos:Concept ;
+    skos:definition "A dated decision with context and consequences, cited with the prefix of its ledger (PLATFORM-D60, LAB-D46)."@en ;
+    skos:example "LAB-D46",
+        "PLATFORM-D60" ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "decision record"@en,
+        "registro de decisión"@es ;
+    protein_function_prediction:external_match "Nygard 2011: architecture decision record" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "document" .
+
+protein_function_prediction:donor_set a skos:Concept ;
+    skos:definition "The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts are read from records."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "donor set"@en,
+        "conjunto donante"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:evaluation_window a skos:Concept ;
+    skos:definition "Cut t0, cut t1, truth rules, target population and pivot ontology, with a descriptor of its population rule."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "evaluation window"@en,
+        "ventana de evaluación"@es ;
+    protein_function_prediction:external_match "CAFA: time-delayed evaluation" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:evidence_channel a skos:Concept ;
+    skos:definition "The declared class of the evidence of a GOA row in a cut (ADR-D59)."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "evidence channel"@en,
+        "canal de evidencia"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:exploration a skos:Concept ;
+    skos:definition "The record of an evaluated hypothesis: frozen rules, configurations, report, review and decision (ADR-D55)."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "exploration"@en,
+        "exploración"@es ;
+    protein_function_prediction:external_match "W3C PROV-O: prov:Activity" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "activity" .
+
+protein_function_prediction:frame a skos:Concept ;
+    skos:altLabel "frame digest"@en ;
+    skos:definition "The windows of a study with their roles; the comparability key of a number is the digest of window, pivot, accretion and population."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "frame"@en,
+        "marco"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:go_term a skos:Concept ;
+    skos:definition "A class of the Gene Ontology, with an identifier GO:nnnnnnn, in an ontology snapshot; the only thing the project calls a term."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "GO term"@en,
+        "término GO"@es ;
+    protein_function_prediction:external_match "Gene Ontology: term" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:information_accretion_table a skos:Concept ;
+    skos:definition "A weight per GO term, computed per corpus and evidence regime and identified by its sha256 (ADR-D46)."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "information accretion table"@en,
+        "tabla de acreción de información"@es ;
+    protein_function_prediction:external_match "Clark y Radivojac 2013: information accretion" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:knowledge_category a skos:Concept ;
+    skos:definition "NK: no experimental annotation at t0 in any aspect; LK: only in other aspects; PK: already in the aspect being evaluated."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "knowledge category"@en,
+        "categoría de conocimiento"@es ;
+    protein_function_prediction:external_match "CAFA: no-, limited- y partial-knowledge" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:knowledge_cut a skos:Concept ;
+    skos:definition "An ordinal GOA release whose knowledge is frozen, with its GOA date and its paired GO and UniProt releases."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "knowledge cut"@en,
+        "corte de conocimiento"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:knowledge_transition a skos:Concept ;
+    skos:definition "The change of the annotations of a protein between two releases (ADR-D56)."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "knowledge transition"@en,
+        "transición de conocimiento"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:knowledge_world_model a skos:Concept ;
+    skos:definition "The world-model family: a JEPA predictor of the future state of knowledge; SF-JEPA only as the name of the laboratory code."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "knowledge world model"@en,
+        "modelo del mundo del conocimiento"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "method_family" .
+
+protein_function_prediction:method a skos:Concept ;
+    skos:definition "A PROTEA method row: family, semantic code, instance cut and recipe, with an id derived from its specification."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "method"@en,
+        "método"@es ;
+    protein_function_prediction:external_match "W3C PROV-O: prov:Plan" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "component" .
+
+protein_function_prediction:method_family a skos:Concept ;
+    skos:definition "One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their family."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "method family"@en,
+        "familia de métodos"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "component" .
+
+protein_function_prediction:ontology_snapshot a skos:Concept ;
+    skos:altLabel "pivot ontology"@en ;
+    skos:definition "A loaded GO release; the pivot ontology is the snapshot in whose universe of GO terms a window is scored."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "ontology snapshot"@en,
+        "instantánea de ontología"@es ;
+    protein_function_prediction:external_match "Gene Ontology: release (data-version)" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:prediction_explanation a skos:Concept ;
+    skos:definition "Why a GO term was predicted for a protein, with a type declared per family and checkable against stored data."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "prediction explanation"@en,
+        "explicación de predicción"@es ;
+    protein_function_prediction:external_match "W3C PROV-O: prov:wasDerivedFrom" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:segment_family a skos:Concept ;
+    skos:definition "A group of own spans joined by residue homology with MMseqs2; never shortened to family."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "segment family"@en,
+        "familia de tramos"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:segmental_lexicon a skos:Concept ;
+    skos:altLabel "theme"@en ;
+    skos:definition "A model learned without labels that cuts each sequence into spans of themes; the themes are its units."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "segmental lexicon"@en,
+        "léxico segmental y tema"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "component" .
+
+protein_function_prediction:source a skos:Concept ;
+    skos:altLabel "annotation source"@en,
+        "evidence source"@en ;
+    skos:definition "An annotation source is a data origin (GOA, QuickGO); an evidence source is a component of a family that feeds a combiner."@en ;
+    skos:example "GOA",
+        "QuickGO" ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "source"@en,
+        "fuente"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:source_release a skos:Concept ;
+    skos:definition "The qualified identifier of a release of a source or of a piece of software; never a bare number."@en ;
+    skos:example "GO 2022-07-01",
+        "GOA 211",
+        "UniProt 2022_03" ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "source release"@en,
+        "versión de fuente"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:spent_test_window a skos:Concept ;
+    skos:altLabel "frame digest stamp"@en,
+        "guard boundary"@en,
+        "revision stamp"@en ;
+    skos:definition "The single read of 227->230; revision and digest stamps; the guard boundary is the last readable release, 227."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "spent test window"@en,
+        "prueba gastada, sellos y frontera de guarda"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:stratum a skos:Concept ;
+    skos:altLabel "band"@en,
+        "nearest experimental donor identity"@en ;
+    skos:definition "A stratum is a point on declared axes; a band is an interval of one axis under a single scheme; identity is taken from the homology table of the cut."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "stratum"@en,
+        "estrato y banda"@es ;
+    protein_function_prediction:external_match "MMseqs2: fident" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:target_population a skos:Concept ;
+    skos:definition "The declared rule and the list of proteins a window scores; a query set is only the stored list."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "target population"@en,
+        "población objetivo"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:truth_evidence_codes a skos:Concept ;
+    skos:definition "The GO evidence codes that count as experimental: evidence_codes.EXPERIMENTAL (13), cited and never retyped."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "truth evidence codes"@en,
+        "códigos de evidencia de verdad"@es ;
+    protein_function_prediction:external_match "Evidence and Conclusion Ontology: experimental evidence" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:universe_of_a_cut a skos:Concept ;
+    skos:definition "The photo, annotation state, windows, information accretion tables, homology table and banks of a cut, all referenced by id."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "universe of a cut"@en,
+        "universo de un corte"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:weighted_f_measures a skos:Concept ;
+    skos:altLabel "f_micro_w"@en,
+        "fmax_w"@en ;
+    skos:definition "f_micro_w is the weighted micro F, PROTEA's headline; fmax_w is cafaeval's protein-centred Fmax; always named by field."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "weighted F measures"@en,
+        "medidas F ponderadas por acreción"@es ;
+    protein_function_prediction:external_match "CAFA-evaluator: weighted F" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:window_role a skos:Concept ;
+    skos:definition "The use a study allows for a window: fitting, selection, or the single read already spent."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "window role"@en,
+        "papel de ventana"@es ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:window_truth a skos:Concept ;
+    skos:definition "The experimental GO terms gained from t0 to t1 under the rules of the window; what is known at t0 are known annotations."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "window truth"@en,
+        "verdad de una ventana"@es ;
+    protein_function_prediction:external_match "CAFA: benchmark annotations" ;
+    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:top_category "data" .
+
+protein_function_prediction:protein_function_prediction_semantic_model a skos:ConceptScheme ;
+    dcterms:hasVersion "0.0.0" ;
+    dcterms:title "Semantic model of protein function prediction"@en ;
+    skos:hasTopConcept protein_function_prediction:annotation_set,
+        protein_function_prediction:arm,
+        protein_function_prediction:aspect,
+        protein_function_prediction:bank,
+        protein_function_prediction:cell,
+        protein_function_prediction:count_map,
+        protein_function_prediction:cut_photo,
+        protein_function_prediction:decision_record,
+        protein_function_prediction:donor_set,
+        protein_function_prediction:evaluation_window,
+        protein_function_prediction:evidence_channel,
+        protein_function_prediction:exploration,
+        protein_function_prediction:frame,
+        protein_function_prediction:go_term,
+        protein_function_prediction:information_accretion_table,
+        protein_function_prediction:knowledge_category,
+        protein_function_prediction:knowledge_cut,
+        protein_function_prediction:knowledge_transition,
+        protein_function_prediction:knowledge_world_model,
+        protein_function_prediction:method,
+        protein_function_prediction:method_family,
+        protein_function_prediction:ontology_snapshot,
+        protein_function_prediction:prediction_explanation,
+        protein_function_prediction:segment_family,
+        protein_function_prediction:segmental_lexicon,
+        protein_function_prediction:source,
+        protein_function_prediction:source_release,
+        protein_function_prediction:spent_test_window,
+        protein_function_prediction:stratum,
+        protein_function_prediction:target_population,
+        protein_function_prediction:truth_evidence_codes,
+        protein_function_prediction:universe_of_a_cut,
+        protein_function_prediction:weighted_f_measures,
+        protein_function_prediction:window_role,
+        protein_function_prediction:window_truth .
+
