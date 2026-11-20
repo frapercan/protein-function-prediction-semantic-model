@@ -1,0 +1,913 @@
+# Semantic model of protein function prediction: concepts, version 0.
+# Imported from the closure map of 2026-11-20; see README.md, "Version 0".
+id: protein_function_prediction_semantic_model
+title: Semantic model of protein function prediction
+version: 0.0.0
+description: >-
+  Version 0: the 35 concept candidates of the closure map of 2026-11-20, imported as they were found and
+  written in English. No canonical name is accepted yet; the author chooses them.
+concepts:
+- id: go_term
+  status: candidate
+  label_en: GO term
+  label_es: término GO
+  candidate_names:
+  - GO term
+  top_category: data
+  definition_en: >-
+    A class of the Gene Ontology, with an identifier GO:nnnnnnn, in an ontology snapshot; the only thing
+    the project calls a term.
+  external_match: 'Gene Ontology: term'
+  current_names:
+  - where: PROTEA
+    names:
+    - go_term
+  - where: panel
+    names:
+    - término
+  - where: laboratory
+    names:
+    - término
+    - term
+  naming_conflict: >-
+    No conflict in the code; the closure reserves the word for this use and avoids it in criteria and
+    texts.
+- id: knowledge_cut
+  status: candidate
+  label_en: knowledge cut
+  label_es: corte de conocimiento
+  candidate_names:
+  - knowledge cut
+  top_category: data
+  definition_en: >-
+    An ordinal GOA release whose knowledge is frozen, with its GOA date and its paired GO and UniProt
+    releases.
+  current_names:
+  - where: ORM
+    names:
+    - cut_release
+  - where: method contract
+    names:
+    - instance_release
+  - where: decoder
+    names:
+    - corte = segmentación
+  - where: user interface
+    names:
+    - frozen training cuts
+  naming_conflict: >-
+    The word names a date, an export, a segmentation and a threshold; cut 211 appears as GO 2022-07 and
+    as GOA 2022-09-16.
+- id: cut_photo
+  status: candidate
+  label_en: cut photo
+  label_es: foto del corte
+  candidate_names:
+  - cut photo
+  top_category: data
+  definition_en: >-
+    The declared member sets of a cut (ADR-D59), with a sha256 manifest, the job and the code revision
+    that built them.
+  external_match: 'W3C PROV-O: prov:Collection'
+  current_names:
+  - where: ORM
+    names:
+    - cut_photo
+    - cut_photo_member
+  - where: panel
+    names:
+    - corpus de la foto 211
+  - where: laboratory
+    names:
+    - banco del marco en 211
+  naming_conflict: >-
+    Invisible in the API, the user interface and the glossary; the laboratory calls it a bank; the metaphor
+    is never explained.
+- id: universe_of_a_cut
+  status: candidate
+  label_en: universe of a cut
+  label_es: universo de un corte
+  candidate_names:
+  - universe of a cut
+  top_category: data
+  definition_en: >-
+    The photo, annotation state, windows, information accretion tables, homology table and banks of a
+    cut, all referenced by id.
+  current_names:
+  - where: ADR-D60
+    names:
+    - one universe
+  - where: ADR-D49 and D59
+    names:
+    - corpus
+  - where: panel
+    names:
+    - corpus de la foto
+  naming_conflict: Universe, corpus, photo and bank overlap; no record lists the ids of a universe.
+- id: ontology_snapshot
+  status: candidate
+  label_en: ontology snapshot
+  label_es: instantánea de ontología
+  candidate_names:
+  - ontology snapshot
+  - pivot ontology
+  top_category: data
+  definition_en: >-
+    A loaded GO release; the pivot ontology is the snapshot in whose universe of GO terms a window is
+    scored.
+  external_match: 'Gene Ontology: release (data-version)'
+  current_names:
+  - where: ORM
+    names:
+    - OntologySnapshot
+  - where: user interface
+    names:
+    - Pivot snapshot
+  - where: docstring
+    names:
+    - snapshot = annotation set
+  - where: laboratory
+    names:
+    - marco de 211
+  naming_conflict: Snapshot also names annotation sets and exports; the laboratory calls the pivot a frame.
+- id: annotation_set
+  status: candidate
+  label_en: annotation set
+  label_es: conjunto de anotaciones
+  candidate_names:
+  - annotation set
+  top_category: data
+  definition_en: One loaded release of an annotation source, for example GOA 211.
+  examples:
+  - GOA 211
+  external_match: 'Gene Ontology: GAF 2.2 file'
+  current_names:
+  - where: ORM
+    names:
+    - annotation_set
+  - where: docs
+    names:
+    - annotation snapshot
+    - reference set
+  - where: glossary
+    names:
+    - t0 como ground truth
+  naming_conflict: >-
+    It is called snapshot, reference set and release; the annotations at t0 are called truth.
+- id: source_release
+  status: candidate
+  label_en: source release
+  label_es: versión de fuente
+  candidate_names:
+  - source release
+  top_category: data
+  definition_en: >-
+    The qualified identifier of a release of a source or of a piece of software; never a bare number.
+  examples:
+  - GOA 211
+  - GO 2022-07-01
+  - UniProt 2022_03
+  current_names:
+  - where: ORM
+    names:
+    - ordinal GOA 211
+  - where: inventory
+    names:
+    - releases/2022-07-01
+  - where: ADR-D60
+    names:
+    - UniProt 2025_03
+  - where: changelog
+    names:
+    - 0.8.0
+  naming_conflict: >-
+    Bare numbers and an unqualified 'release' are ambiguous between GOA, GO, UniProt and software.
+- id: evaluation_window
+  status: candidate
+  label_en: evaluation window
+  label_es: ventana de evaluación
+  candidate_names:
+  - evaluation window
+  top_category: data
+  definition_en: >-
+    Cut t0, cut t1, truth rules, target population and pivot ontology, with a descriptor of its population
+    rule.
+  external_match: 'CAFA: time-delayed evaluation'
+  current_names:
+  - where: ORM and API
+    names:
+    - evaluation_set
+  - where: user interface
+    names:
+    - window
+    - time window
+  - where: panel
+    names:
+    - Ventana 211->227 (4244033e)
+  - where: production
+    names:
+    - tres filas 211->227 valid
+  naming_conflict: Stored as evaluation_set and read as window; 211->227 names four records.
+- id: window_role
+  status: candidate
+  label_en: window role
+  label_es: papel de ventana
+  candidate_names:
+  - window role
+  top_category: data
+  definition_en: >-
+    The use a study allows for a window: fitting, selection, or the single read already spent.
+  values:
+  - training
+  - validation
+  - test_spent
+  current_names:
+  - where: PROTEA, legacy
+    names:
+    - valid
+    - test
+  - where: ADR-D60
+    names:
+    - training
+    - validation
+    - test_spent
+  - where: split_registry
+    names:
+    - train
+    - adjustment
+    - validation
+  - where: laboratory
+    names:
+    - validación
+    - test
+  naming_conflict: >-
+    Two vocabularies in one column; test is 227->230 in the laboratory and v226-v230 in the reranker's.
+- id: frame
+  status: candidate
+  label_en: frame
+  label_es: marco
+  candidate_names:
+  - frame
+  - frame digest
+  top_category: data
+  definition_en: >-
+    The windows of a study with their roles; the comparability key of a number is the digest of window,
+    pivot, accretion and population.
+  current_names:
+  - where: user interface
+    names:
+    - frame = ventana + grafo + acreción + población
+  - where: PROTEA
+    names:
+    - ventanas con papeles
+  - where: laboratory
+    names:
+    - protocolo
+  - where: results
+    names:
+    - frame_digest
+  naming_conflict: >-
+    One word for the study and for the comparability key; the laboratory also uses it for a lexicon cut.
+- id: window_truth
+  status: candidate
+  label_en: window truth
+  label_es: verdad de una ventana
+  candidate_names:
+  - window truth
+  top_category: data
+  definition_en: >-
+    The experimental GO terms gained from t0 to t1 under the rules of the window; what is known at t0
+    are known annotations.
+  external_match: 'CAFA: benchmark annotations'
+  current_names:
+  - where: PROTEA
+    names:
+    - truth_rules
+  - where: glossary
+    names:
+    - ground truth (también t0)
+  - where: user interface (es)
+    names:
+    - ground truth
+    - verdad de referencia
+  - where: panel
+    names:
+    - verdad completa
+  naming_conflict: >-
+    The glossary calls t0 the truth; the user interface mixes two names; the panel says full truth with
+    two policies.
+- id: knowledge_category
+  status: candidate
+  label_en: knowledge category
+  label_es: categoría de conocimiento
+  candidate_names:
+  - knowledge category
+  top_category: data
+  definition_en: >-
+    NK: no experimental annotation at t0 in any aspect; LK: only in other aspects; PK: already in the
+    aspect being evaluated.
+  values:
+  - NK
+  - LK
+  - PK
+  external_match: 'CAFA: no-, limited- y partial-knowledge'
+  current_names:
+  - where: code
+    names:
+    - Category
+  - where: glossary
+    names:
+    - NK por espacio de nombres
+  - where: README
+    names:
+    - tiers
+  - where: docs
+    names:
+    - regimes
+    - buckets
+    - settings
+  naming_conflict: Three definitions of NK and five names; tier is left only for the levels of the corpus.
+- id: aspect
+  status: candidate
+  label_en: aspect
+  label_es: aspecto
+  candidate_names:
+  - aspect
+  top_category: data
+  definition_en: >-
+    A branch of GO: biological process, molecular function or cellular component, with the codes P, F
+    and C.
+  values:
+  - P
+  - F
+  - C
+  external_match: 'Gene Ontology: aspect'
+  current_names:
+  - where: code
+    names:
+    - Aspect
+  - where: glossary
+    names:
+    - namespaces BPO
+    - MFO
+    - CCO
+  - where: overview
+    names:
+    - branches
+  - where: panel
+    names:
+    - proceso
+    - función
+    - componente
+  naming_conflict: Aspect, namespace, branch and sub-ontology; two sets of codes.
+- id: cell
+  status: candidate
+  label_en: cell
+  label_es: celda
+  candidate_names:
+  - cell
+  top_category: data
+  definition_en: 'The reporting unit: one knowledge category by one aspect; nine per window.'
+  current_names:
+  - where: panel
+    names:
+    - nueve celdas
+  - where: strata page
+    names:
+    - panel
+    - setting
+  - where: ledger
+    names:
+    - nine-cell board
+  - where: operations
+    names:
+    - paired panels
+  naming_conflict: Cell, panel and setting name the same thing; panel is also the validation page.
+- id: information_accretion_table
+  status: candidate
+  label_en: information accretion table
+  label_es: tabla de acreción de información
+  candidate_names:
+  - information accretion table
+  top_category: data
+  definition_en: >-
+    A weight per GO term, computed per corpus and evidence regime and identified by its sha256 (ADR-D46).
+  external_match: 'Clark y Radivojac 2013: information accretion'
+  current_names:
+  - where: ORM
+    names:
+    - information_accretion_set
+  - where: data
+    names:
+    - IA_cafa6.tsv
+  - where: user interface
+    names:
+    - IA URL
+    - Acreción de información
+  - where: panel
+    names:
+    - información ganada
+  naming_conflict: >-
+    The glossary describes a fixed CAFA6 table; the user interface and the panel use different names.
+- id: truth_evidence_codes
+  status: candidate
+  label_en: truth evidence codes
+  label_es: códigos de evidencia de verdad
+  candidate_names:
+  - truth evidence codes
+  top_category: data
+  definition_en: >-
+    The GO evidence codes that count as experimental: evidence_codes.EXPERIMENTAL (13), cited and never
+    retyped.
+  external_match: 'Evidence and Conclusion Ontology: experimental evidence'
+  current_names:
+  - where: code
+    names:
+    - EXPERIMENTAL (13)
+  - where: glossary
+    names:
+    - 5 códigos
+  - where: evaluation docs
+    names:
+    - '6'
+  - where: panel
+    names:
+    - CODES (13 retecleados)
+  naming_conflict: >-
+    5, 6 and 13 codes in three places; six strict codes in the strata against thirteen in the truth.
+- id: evidence_channel
+  status: candidate
+  label_en: evidence channel
+  label_es: canal de evidencia
+  candidate_names:
+  - evidence channel
+  top_category: data
+  definition_en: The declared class of the evidence of a GOA row in a cut (ADR-D59).
+  current_names:
+  - where: ORM
+    names:
+    - evidence_channel_table
+  - where: ADR-D59
+    names:
+    - evidence channel
+  - where: notes
+    names:
+    - canal = dimensión de embedding
+  naming_conflict: >-
+    In the notes a channel is an embedding dimension; absent from the user interface and the glossary.
+- id: target_population
+  status: candidate
+  label_en: target population
+  label_es: población objetivo
+  candidate_names:
+  - target population
+  top_category: data
+  definition_en: >-
+    The declared rule and the list of proteins a window scores; a query set is only the stored list.
+  current_names:
+  - where: ADR-D60
+    names:
+    - superset_at_t0
+  - where: ORM
+    names:
+    - query set
+  - where: panel
+    names:
+    - objetivos
+    - dianas
+  - where: laboratory
+    names:
+    - consultas
+  - where: docs
+    names:
+    - test set
+    - delta
+  naming_conflict: Seven names; the exam populations of the laboratory are another concept.
+- id: donor_set
+  status: candidate
+  label_en: donor set
+  label_es: conjunto donante
+  candidate_names:
+  - donor set
+  top_category: data
+  definition_en: >-
+    The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts
+    are read from records.
+  current_names:
+  - where: panel
+    names:
+    - donantes 142.476 y 142.502
+  - where: count map
+    names:
+    - miembros de verdad
+  - where: ADR-D41
+    names:
+    - reference pool
+  - where: laboratory
+    names:
+    - banco de B0
+  naming_conflict: Donors, reference and bank are mixed up; the counts are typed in two ways.
+- id: bank
+  status: candidate
+  label_en: bank
+  label_es: banco
+  candidate_names:
+  - embedding bank
+  - lexicon bank
+  top_category: data
+  definition_en: Representations stored per member of a photo and verified by a manifest (ADR-D62, D63).
+  current_names:
+  - where: ORM
+    names:
+    - embedding_bank
+    - lexicon_bank
+  - where: ADR-D60
+    names:
+    - reference bank
+  - where: laboratory
+    names:
+    - banco corto = tanda de prueba
+  naming_conflict: Bank names representations, donor sets and trial batches.
+- id: stratum
+  status: candidate
+  label_en: stratum
+  label_es: estrato y banda
+  candidate_names:
+  - stratum
+  - band
+  - nearest experimental donor identity
+  top_category: data
+  definition_en: >-
+    A stratum is a point on declared axes; a band is an interval of one axis under a single scheme; identity
+    is taken from the homology table of the cut.
+  external_match: 'MMseqs2: fident'
+  current_names:
+  - where: strata.py
+    names:
+    - <=512..>2048; none
+    - <=30
+    - 30-60
+  - where: panel and laboratory
+    names:
+    - <100..>=2000; <30..>=99
+  - where: band_registry
+    names:
+    - banda = ventana
+  - where: user interface
+    names:
+    - identidad del brazo
+  naming_conflict: >-
+    Two schemes for the same axes; band is also a window and an interval; identity per method or per target.
+- id: method
+  status: candidate
+  label_en: method
+  label_es: método
+  candidate_names:
+  - method
+  top_category: component
+  definition_en: >-
+    A PROTEA method row: family, semantic code, instance cut and recipe, with an id derived from its specification.
+  external_match: 'W3C PROV-O: prov:Plan'
+  current_names:
+  - where: ORM
+    names:
+    - method
+  - where: panel
+    names:
+    - fam-perm
+    - propias-ord
+  - where: ingestion
+    names:
+    - arm
+  - where: laboratory
+    names:
+    - receta
+  naming_conflict: The panel uses its own ids; recipe names parameters and the October method.
+- id: method_family
+  status: candidate
+  label_en: method family
+  label_es: familia de métodos
+  candidate_names:
+  - method family
+  top_category: component
+  definition_en: >-
+    One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their
+    family.
+  values:
+  - explainable-units
+  - embedding-reranker
+  - world-model
+  current_names:
+  - where: code
+    names:
+    - families.py (3)
+  - where: panel
+    names:
+    - cuatro valores
+  - where: author
+    names:
+    - 3 brazos
+  - where: user interface
+    names:
+    - PLM family
+    - feature families
+  naming_conflict: >-
+    The panel shows four families; the user interface calls PLM lines and feature groups families.
+- id: arm
+  status: candidate
+  label_en: arm
+  label_es: configuración evaluada
+  candidate_names:
+  - arm
+  top_category: data
+  definition_en: One evaluated configuration within an exploration; never a family nor a method.
+  current_names:
+  - where: ADR-D60
+    names:
+    - arm
+  - where: ingestion
+    names:
+    - register an arm
+  - where: laboratory
+    names:
+    - 189 brazos
+  - where: user interface
+    names:
+    - arms stratified
+  naming_conflict: Arm names a configuration, a method and a family.
+- id: source
+  status: candidate
+  label_en: source
+  label_es: fuente
+  candidate_names:
+  - annotation source
+  - evidence source
+  top_category: data
+  definition_en: >-
+    An annotation source is a data origin (GOA, QuickGO); an evidence source is a component of a family
+    that feeds a combiner.
+  examples:
+  - GOA
+  - QuickGO
+  current_names:
+  - where: ORM
+    names:
+    - source goa
+    - quickgo
+  - where: satellite
+    names:
+    - protea-sources
+  - where: count map
+    names:
+    - first source
+  - where: ADR-D65, unmerged
+    names:
+    - explainable sources
+  naming_conflict: A data origin and a component of a family share the word.
+- id: segmental_lexicon
+  status: candidate
+  label_en: segmental lexicon
+  label_es: léxico segmental y tema
+  candidate_names:
+  - segmental lexicon
+  - theme
+  top_category: component
+  definition_en: >-
+    A model learned without labels that cuts each sequence into spans of themes; the themes are its units.
+  current_names:
+  - where: PROTEA
+    names:
+    - lexicon
+    - lexico-93k
+  - where: panel
+    names:
+    - Mapa de temas
+  - where: laboratory
+    names:
+    - léxico
+    - temas
+  - where: Sphinx
+    names:
+    - una mención
+  naming_conflict: Spanish words inside shared identifiers; absent from the docs and the glossary.
+- id: segment_family
+  status: candidate
+  label_en: segment family
+  label_es: familia de tramos
+  candidate_names:
+  - segment family
+  top_category: data
+  definition_en: A group of own spans joined by residue homology with MMseqs2; never shortened to family.
+  values:
+  - strict
+  - permissive
+  current_names:
+  - where: ORM
+    names:
+    - segment_families
+  - where: port
+    names:
+    - familias_tramos.py
+  - where: panel
+    names:
+    - fam-perm
+    - fam-estr
+  naming_conflict: Shortened to family, it clashes with method family; zero mentions in the docs.
+- id: count_map
+  status: candidate
+  label_en: count map
+  label_es: mapa de conteos
+  candidate_names:
+  - count map
+  top_category: method
+  definition_en: >-
+    Per aspect, counts of GO terms per unit at t0, p = (K + m pi) / (N + m), read for the targets with
+    a witness.
+  current_names:
+  - where: PROTEA
+    names:
+    - count_map
+    - run_count_map
+  - where: port
+    names:
+    - mapa_cuentas.py
+  - where: panel
+    names:
+    - Mapa de familias
+    - Mapa de temas
+  naming_conflict: The panel names it after its units; the docs are silent; its ADRs are unmerged.
+- id: knowledge_world_model
+  status: candidate
+  label_en: knowledge world model
+  label_es: modelo del mundo del conocimiento
+  candidate_names:
+  - knowledge world model
+  top_category: method_family
+  definition_en: >-
+    The world-model family: a JEPA predictor of the future state of knowledge; SF-JEPA only as the name
+    of the laboratory code.
+  current_names:
+  - where: code
+    names:
+    - world-model
+  - where: user interface
+    names:
+    - World model
+  - where: laboratory
+    names:
+    - SF-JEPA
+    - un único modelo del mundo
+  naming_conflict: SF-JEPA, JEPA and world model are used as synonyms.
+- id: knowledge_transition
+  status: candidate
+  label_en: knowledge transition
+  label_es: transición de conocimiento
+  candidate_names:
+  - knowledge transition
+  top_category: data
+  definition_en: The change of the annotations of a protein between two releases (ADR-D56).
+  current_names:
+  - where: PROTEA
+    names:
+    - transitions dataset
+  - where: notes
+    names:
+    - transición
+  - where: glossary
+    names:
+    - transición de estado de un Job
+  naming_conflict: The same word names state changes of jobs.
+- id: prediction_explanation
+  status: candidate
+  label_en: prediction explanation
+  label_es: explicación de predicción
+  candidate_names:
+  - prediction explanation
+  top_category: data
+  definition_en: >-
+    Why a GO term was predicted for a protein, with a type declared per family and checkable against stored
+    data.
+  external_match: 'W3C PROV-O: prov:wasDerivedFrom'
+  current_names:
+  - where: ORM
+    names:
+    - prediction_explanation
+  - where: count map
+    names:
+    - witness
+  - where: web
+    names:
+    - Explain = ayuda
+  - where: API
+    names:
+    - sin ruta
+  naming_conflict: Stored but not readable; Explain on the web is help text.
+  review_note: >-
+    The re-scoring of 2026-11-20 found that the per-protein route GET /v1/embeddings/prediction-sets/{set_id}/proteins/{accession}
+    serves the kNN donor; whether it also serves prediction_explanation rows is not checked yet.
+- id: weighted_f_measures
+  status: candidate
+  label_en: weighted F measures
+  label_es: medidas F ponderadas por acreción
+  candidate_names:
+  - f_micro_w
+  - fmax_w
+  top_category: data
+  definition_en: >-
+    f_micro_w is the weighted micro F, PROTEA's headline; fmax_w is cafaeval's protein-centred Fmax; always
+    named by field.
+  external_match: 'CAFA-evaluator: weighted F'
+  current_names:
+  - where: API
+    names:
+    - f_micro_w
+  - where: writer
+    names:
+    - fmax_w = f_w
+  - where: panel
+    names:
+    - Fmax ponderada (= fmax_w)
+  - where: laboratory
+    names:
+    - f_micro_w
+  naming_conflict: Weighted Fmax names two measures; the headline of the panel differs from the platform's.
+- id: exploration
+  status: candidate
+  label_en: exploration
+  label_es: exploración
+  candidate_names:
+  - exploration
+  top_category: activity
+  definition_en: >-
+    The record of an evaluated hypothesis: frozen rules, configurations, report, review and decision (ADR-D55).
+  external_match: 'W3C PROV-O: prov:Activity'
+  current_names:
+  - where: ORM
+    names:
+    - exploration
+  - where: ORM
+    names:
+    - experiment_run
+  - where: laboratory
+    names:
+    - ficha
+  - where: reranker
+    names:
+    - study
+  naming_conflict: Four names; the cards do not link explorations.
+- id: decision_record
+  status: candidate
+  label_en: decision record
+  label_es: registro de decisión
+  candidate_names:
+  - decision record
+  top_category: document
+  definition_en: >-
+    A dated decision with context and consequences, cited with the prefix of its ledger (PLATFORM-D60,
+    LAB-D46).
+  examples:
+  - PLATFORM-D60
+  - LAB-D46
+  external_match: 'Nygard 2011: architecture decision record'
+  current_names:
+  - where: PROTEA
+    names:
+    - ADR D1-D65
+  - where: laboratory
+    names:
+    - D1-D46
+    - D47 en una ficha
+  - where: October line
+    names:
+    - decisiones 1 a 42
+  - where: agent farm
+    names:
+    - D31-D34
+  naming_conflict: Five series reuse D numbers.
+- id: spent_test_window
+  status: candidate
+  label_en: spent test window
+  label_es: prueba gastada, sellos y frontera de guarda
+  candidate_names:
+  - spent test window
+  - revision stamp
+  - frame digest stamp
+  - guard boundary
+  top_category: data
+  definition_en: >-
+    The single read of 227->230; revision and digest stamps; the guard boundary is the last readable release,
+    227.
+  current_names:
+  - where: user interface
+    names:
+    - sealed board
+  - where: ADR-D60
+    names:
+    - revisión seal
+  - where: operation catalog
+    names:
+    - seal_evaluation_frames
+  - where: laboratory
+    names:
+    - marca 228
+  naming_conflict: Seal names three things; the mark is 227 (last allowed) or 228 (first refused).

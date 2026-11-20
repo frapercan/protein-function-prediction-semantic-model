@@ -3,4 +3,68 @@
 The single versioned description of the concepts of protein function prediction, of the
 components that implement or document them, and of the relations between them.
 
-Version 0 is under review in the branch `version-0`.
+It is named after the problem, not after a tool. PROTEA, the open science platform where the
+work runs, is one of its components; so are the laboratory code, the evaluator and the
+documentation. The glossary, the component map, the labels of user interfaces and the schemas
+of data contracts are meant to be generated from it, so that one concept has one name
+everywhere.
+
+## Status
+
+Version 0, under review.
+
+- It holds the 35 concept candidates found while mapping the project for its closure
+  (2026-11-20), imported as they were found and written in English.
+- No canonical name is accepted yet: the author chooses them. A concept with several candidate
+  names groups concepts that still have to be split.
+- Components and relations are defined in the schema and not filled yet.
+
+## What is here
+
+| Path | What it is |
+|---|---|
+| `schema/protein_function_prediction_semantic_model.yaml` | The LinkML schema, the only source of the structure. |
+| `data/concepts.yaml` | The concepts, the only source of the content. |
+| `generated/` | JSON Schema, OWL in Turtle, Pydantic classes and the SKOS concept scheme, built from the two sources. |
+| `docs/glossary.md` | The glossary, built from the concepts. |
+| `scripts/build.py` | Builds everything under `generated/` and the glossary. |
+| `tests/` | The checks run locally and in CI. |
+
+Nothing under `generated/` or `docs/glossary.md` is edited by hand: change the schema or the
+concepts and rebuild.
+
+## The model in brief
+
+- **First ring.** Concept (`skos:Concept`), component and relation. The model itself is a
+  `skos:ConceptScheme`.
+- **Reserved words.** *Ontology* names only the Gene Ontology and *term* names only a GO term.
+  A test refuses any other use in labels, names and definitions.
+- **One card per concept.** Identifier, status, English label, candidate names and, once
+  accepted, the canonical name; top category; definition; values and examples when it has
+  them; the names it has today and where; its equivalent outside the project; and the names
+  it retires.
+- **English only.** Everything is in English except one field, the Spanish label, kept for the
+  Spanish user interface. The names a concept has today are quoted verbatim, whatever their
+  language, because they are the record of what has to be renamed.
+
+## Build and check
+
+Requires [uv](https://docs.astral.sh/uv/).
+
+```sh
+uv sync --frozen                  # the pinned tools: LinkML 1.12.1 and pytest
+uv run python scripts/build.py    # rebuild generated/ and docs/glossary.md
+uv run pytest                     # lint, validation, reserved words, generated files up to date
+```
+
+CI runs the same checks on every pull request and on `main`, and refuses commit messages or
+pull request bodies that carry AI attribution lines.
+
+## Identifiers
+
+Concept URIs live under `https://w3id.org/protein-function-prediction-semantic-model/`. The
+redirect is not registered yet, so they identify concepts but do not resolve.
+
+## License
+
+Released into the public domain under the [Unlicense](LICENSE), like the rest of the stack.
