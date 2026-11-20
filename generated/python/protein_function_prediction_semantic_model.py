@@ -89,7 +89,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'protein_function_prediction',
                            'prefix_reference': 'http://www.w3.org/ns/prov#'},
                   'skos': {'prefix_prefix': 'skos',
                            'prefix_reference': 'http://www.w3.org/2004/02/skos/core#'}},
-     'source_file': '/home/xaxi/Thesis/protein-function-prediction-semantic-model/schema/protein_function_prediction_semantic_model.yaml',
+     'source_file': 'schema/protein_function_prediction_semantic_model.yaml',
      'title': 'Semantic model of protein function prediction'} )
 
 class NameStatus(str, Enum):

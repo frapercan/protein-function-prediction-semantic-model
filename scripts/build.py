@@ -45,8 +45,14 @@ GENERATORS: list[tuple[str, list[str]]] = [
 
 
 def run_generator(command: list[str]) -> str:
-    """Run one LinkML generator on the schema and return what it prints."""
-    done = subprocess.run([*command, str(SCHEMA)], capture_output=True, text=True, check=False)
+    """Run one LinkML generator on the schema and return what it prints.
+
+    The schema is passed relative to the root, from the root, because some generators
+    copy the path they were given into their output; an absolute path would make the
+    output depend on where the repository was cloned.
+    """
+    relative = SCHEMA.relative_to(ROOT).as_posix()
+    done = subprocess.run([*command, relative], capture_output=True, text=True, check=False, cwd=ROOT)
     if done.returncode != 0:
         sys.exit(f"{command[0]} failed:\n{done.stderr}")
     return done.stdout
