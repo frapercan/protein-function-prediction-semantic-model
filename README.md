@@ -67,4 +67,4 @@ redirect is not registered yet, so they identify concepts but do not resolve.
 
 ## License
 
-Not chosen yet; it is decided together with the rest of the stack.
+Released into the public domain under the [Unlicense](LICENSE), like the rest of the stack.
