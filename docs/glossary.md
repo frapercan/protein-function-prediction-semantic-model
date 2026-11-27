@@ -363,7 +363,7 @@ Names today: ORM: method; panel: fam-perm, propias-ord; ingestion: arm; laborato
 - **Top category:** component
 - **Values:** `explainable-units`, `embedding-reranker`, `world-model`
 
-One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their family.
+One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their family. A method that combines families belongs to the family of its own kind (the author, 2026-11-28): the reranker over sources, a set of trees, to embedding-reranker; the set-attention reader to world-model.
 
 Names today: code: families.py (3); panel: cuatro valores; author: 3 brazos; user interface: PLM family, feature families.
 

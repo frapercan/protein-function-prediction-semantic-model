@@ -300,7 +300,7 @@ protein_function_prediction:method a skos:Concept ;
     protein_function_prediction:top_category "component" .
 
 protein_function_prediction:method_family a skos:Concept ;
-    skos:definition "One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their family."@en ;
+    skos:definition "One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their family. A method that combines families belongs to the family of its own kind (the author, 2026-11-28): the reranker over sources, a set of trees, to embedding-reranker; the set-attention reader to world-model."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "method family"@en,
         "familia de métodos"@es ;

@@ -611,7 +611,9 @@ concepts:
   top_category: component
   definition_en: >-
     One of three: explainable-units, embedding-reranker or world-model (ADR-D60); baselines carry their
-    family.
+    family. A method that combines families belongs to the family of its own kind (the author,
+    2026-11-28): the reranker over sources, a set of trees, to embedding-reranker; the set-attention
+    reader to world-model.
   values:
   - explainable-units
   - embedding-reranker
