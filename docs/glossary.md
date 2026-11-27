@@ -195,9 +195,9 @@ Names today: PROTEA, accepted names: photo_members, declare_photo_member_set; pr
 - **Spanish label:** conjunto donante
 - **Top category:** data
 
-The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts are read from records.
+The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts are read from records. The literature ladder declares it as a set of photo members and names it in the donor policy.
 
-Names today: panel: donantes 142.476 y 142.502; count map: miembros de verdad; ADR-D41: reference pool; laboratory: banco de B0.
+Names today: panel: donantes 142.476 y 142.502; count map: miembros de verdad; ADR-D41: reference pool; laboratory: banco de B0; PROTEA, accepted names: photo_members; protea-contracts, accepted names: donor_set_id.
 
 ## evaluation window
 
@@ -216,9 +216,9 @@ Names today: ORM and API: evaluation_set; user interface: window, time window; p
 - **Spanish label:** canal de evidencia
 - **Top category:** data
 
-The declared class of the evidence of a GOA row in a cut (ADR-D59).
+The declared class of the evidence of a GOA row in a cut (ADR-D59). Read on a donated annotation, it is the transfer channel the literature ladder names in its donor policy.
 
-Names today: ORM: evidence_channel_table; ADR-D59: evidence channel; notes: canal = dimensión de embedding.
+Names today: ORM: evidence_channel_table; ADR-D59: evidence channel; notes: canal = dimensión de embedding; literature ladder: transfer channel.
 
 ## exploration
 
@@ -652,9 +652,9 @@ Names today: PROTEA, accepted names: protea/core/t0_category.py.
 - **Spanish label:** población objetivo
 - **Top category:** data
 
-The declared rule and the list of proteins a window scores; a query set is only the stored list.
+The declared rule and the list of proteins a window scores; a query set is only the stored list. A toy window scores a window sample of its parent window's targets.
 
-Names today: ADR-D60: superset_at_t0; ORM: query set; panel: objetivos, dianas; laboratory: consultas; docs: test set, delta.
+Names today: ADR-D60: superset_at_t0; ORM: query set; panel: objetivos, dianas; laboratory: consultas; docs: test set, delta; PROTEA, accepted names: window_sample, target_query_set_id.
 
 ## transport diagnostic
 

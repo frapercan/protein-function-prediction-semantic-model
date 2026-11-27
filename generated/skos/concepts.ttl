@@ -158,7 +158,7 @@ protein_function_prediction:donor_pool_breadth a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:donor_set a skos:Concept ;
-    skos:definition "The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts are read from records."@en ;
+    skos:definition "The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts are read from records. The literature ladder declares it as a set of photo members and names it in the donor policy."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "donor set"@en,
         "conjunto donante"@es ;
@@ -175,7 +175,7 @@ protein_function_prediction:evaluation_window a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:evidence_channel a skos:Concept ;
-    skos:definition "The declared class of the evidence of a GOA row in a cut (ADR-D59)."@en ;
+    skos:definition "The declared class of the evidence of a GOA row in a cut (ADR-D59). Read on a donated annotation, it is the transfer channel the literature ladder names in its donor policy."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "evidence channel"@en,
         "canal de evidencia"@es ;
@@ -546,7 +546,7 @@ protein_function_prediction:t0_category a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:target_population a skos:Concept ;
-    skos:definition "The declared rule and the list of proteins a window scores; a query set is only the stored list."@en ;
+    skos:definition "The declared rule and the list of proteins a window scores; a query set is only the stored list. A toy window scores a window sample of its parent window's targets."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "target population"@en,
         "población objetivo"@es ;

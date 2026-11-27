@@ -444,7 +444,9 @@ concepts:
   candidate_names:
   - evidence channel
   top_category: data
-  definition_en: The declared class of the evidence of a GOA row in a cut (ADR-D59).
+  definition_en: >-
+    The declared class of the evidence of a GOA row in a cut (ADR-D59). Read on a donated annotation,
+    it is the transfer channel the literature ladder names in its donor policy.
   current_names:
   - where: ORM
     names:
@@ -455,6 +457,9 @@ concepts:
   - where: notes
     names:
     - canal = dimensión de embedding
+  - where: literature ladder
+    names:
+    - transfer channel
   naming_conflict: >-
     In the notes a channel is an embedding dimension; absent from the user interface and the glossary.
 - id: target_population
@@ -465,7 +470,8 @@ concepts:
   - target population
   top_category: data
   definition_en: >-
-    The declared rule and the list of proteins a window scores; a query set is only the stored list.
+    The declared rule and the list of proteins a window scores; a query set is only the stored list. A
+    toy window scores a window sample of its parent window's targets.
   current_names:
   - where: ADR-D60
     names:
@@ -484,6 +490,10 @@ concepts:
     names:
     - test set
     - delta
+  - where: PROTEA, accepted names
+    names:
+    - window_sample
+    - target_query_set_id
   naming_conflict: Seven names; the exam populations of the laboratory are another concept.
 - id: donor_set
   status: candidate
@@ -494,7 +504,8 @@ concepts:
   top_category: data
   definition_en: >-
     The members of the photo whose t0 annotations may be transferred, with their evidence rule; counts
-    are read from records.
+    are read from records. The literature ladder declares it as a set of photo members and names it in
+    the donor policy.
   current_names:
   - where: panel
     names:
@@ -508,6 +519,12 @@ concepts:
   - where: laboratory
     names:
     - banco de B0
+  - where: PROTEA, accepted names
+    names:
+    - photo_members
+  - where: protea-contracts, accepted names
+    names:
+    - donor_set_id
   naming_conflict: Donors, reference and bank are mixed up; the counts are typed in two ways.
 - id: bank
   status: candidate
