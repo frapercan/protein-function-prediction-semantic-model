@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SCHEMA = ROOT / "schema" / "protein_function_prediction_semantic_model.yaml"
 CONCEPTS = ROOT / "data" / "concepts.yaml"
 PYDANTIC = ROOT / "generated" / "python" / "protein_function_prediction_semantic_model.py"
+BUILD = ROOT / "scripts" / "build.py"
 
 # Fields that define a concept; the names it has today and the notes about them are left out,
 # because they quote the words as they are used now.
@@ -128,3 +129,25 @@ def test_the_reserved_word_check_lets_the_one_meaning_pass(text: str) -> None:
 def test_generated_files_match_their_sources() -> None:
     done = run(sys.executable, "scripts/build.py", "--check")
     assert done.returncode == 0, done.stdout + done.stderr
+
+
+@pytest.fixture(scope="module")
+def build_script():
+    spec = importlib.util.spec_from_file_location("semantic_model_build", BUILD)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+@pytest.mark.parametrize(("statuses", "opening"), [
+    (["candidate", "candidate"], "Every name below is a candidate: none is accepted yet."),
+    (["accepted", "candidate"], "A concept marked accepted carries the canonical name the author chose"),
+    (["accepted", "accepted"], None),
+])
+def test_the_glossary_note_is_true_for_the_statuses_it_finds(build_script, statuses, opening) -> None:
+    note = build_script.status_note([{"status": status} for status in statuses])
+    if opening is None:
+        assert note == []
+    else:
+        assert note[0].startswith(opening)
+        assert note[-1] == ""
