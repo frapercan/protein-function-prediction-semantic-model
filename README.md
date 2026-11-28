@@ -11,12 +11,17 @@ everywhere.
 
 ## Status
 
-Version 0, under review.
+Version 0.1, under review.
 
-- It holds the 35 concept candidates found while mapping the project for its closure
-  (2026-11-20), imported as they were found and written in English.
-- No canonical name is accepted yet: the author chooses them. A concept with several candidate
-  names groups concepts that still have to be split.
+- Version 0 imported the 35 concept candidates found while mapping the project for its closure
+  (2026-11-20), as they were found and written in English. Their canonical names are not chosen
+  yet: the author chooses them. A concept with several candidate names groups concepts that
+  still have to be split.
+- Version 0.1 adds the 34 concepts of the literature ladder, the protocol that reproduces the
+  published ways of transferring GO terms inside PROTEA as ordered rungs. The author accepted
+  their names on 2026-11-28, so each of these cards is accepted, with its one canonical name.
+  The same acceptance amends three cards of version 0 (evidence channel, donor set, target
+  population) and settles where a method that combines families belongs (method family).
 - Components and relations are defined in the schema and not filled yet.
 
 ## What is here
