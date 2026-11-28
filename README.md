@@ -30,6 +30,11 @@ Version 0.2, under review.
   segment encoder), accepts the count map's name, and gives the knowledge category and the
   aspect their descriptive values, the codes PROTEA uses today kept as current names. The
   author accepted these names and the families on 2026-11-28.
+  The same evening he accepted in bulk the code names of the ladder's third implementation
+  batch, recorded as current names on the cards they belong to: `search_space` (search-space
+  transform), `delivered_reading` (coverage guarantee), `homology_self_scores` with its columns
+  `scores_uri`, `scores_sha256` and `queries_without_self_score` (homology vote), `channel_mask`
+  (evidence channel), and the count map's method code suffixes `-accession` and `-grid`.
 - Components and relations are defined in the schema and not filled yet.
 
 ## What is here

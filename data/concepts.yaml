@@ -2,7 +2,8 @@
 # Version 0 was imported from the closure map of 2026-11-20; version 0.1 adds the concepts of the
 # literature ladder, with the names the author accepted on 2026-11-28; version 0.2 places the rungs
 # of the ladder (their order, their display position and their family), with the rung cards, the
-# names and the values he accepted the same day. See README.md, "Status".
+# names and the values he accepted the same day, and the code names of the ladder's third implementation
+# batch, which he accepted in bulk that evening. See README.md, "Status".
 id: protein_function_prediction_semantic_model
 title: Semantic model of protein function prediction
 version: 0.2.0
@@ -10,7 +11,8 @@ description: >-
   Version 0.2: the concept candidates of the closure map of 2026-11-20, imported as they were found and
   written in English, whose names the author has not chosen yet; the concepts of the literature ladder,
   whose names he accepted on 2026-11-28; and the sixteen rungs of the ladder, each a concept card with
-  its order, its display position and the family of its method, accepted the same day.
+  its order, its display position and the family of its method, accepted the same day. It also records
+  the code names of the ladder's third implementation batch, accepted the same evening.
 concepts:
 - id: go_term
   status: candidate
@@ -476,6 +478,9 @@ concepts:
   - where: literature ladder
     names:
     - transfer channel
+  - where: PROTEA, accepted names
+    names:
+    - channel_mask
   naming_conflict: >-
     In the notes a channel is an embedding dimension; absent from the user interface and the glossary.
 - id: target_population
@@ -766,6 +771,10 @@ concepts:
     names:
     - count_map
     - run_count_map
+  - where: PROTEA, accepted method code suffixes
+    names:
+    - '-accession'
+    - '-grid'
   - where: port
     names:
     - mapa_cuentas.py
@@ -1174,6 +1183,10 @@ concepts:
     names:
     - EmbeddingTransform
     - embedding_transform
+  - where: PROTEA, accepted names
+    names:
+    - search_space
+    - SearchSpace
   review_note: >-
     A sixth value, whiten_above_storage_noise, enters only if the space statistics count directions
     below the shrinkage or the storage floor, and then with the contracts' second release.
@@ -1326,6 +1339,7 @@ concepts:
     - raise_best_unknown_term_to_declared_threshold
     - forced
     - reserve
+    - delivered_reading
 - id: regime_calibration
   status: accepted
   label_en: regime calibration
@@ -1673,6 +1687,10 @@ concepts:
     - run_homology_transfer
     - bitscore_vote
     - bitscore_identity_vote
+    - homology_self_scores
+    - scores_uri
+    - scores_sha256
+    - queries_without_self_score
   - where: calibration vocabulary
     names:
     - homology_vote

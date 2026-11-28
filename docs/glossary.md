@@ -117,7 +117,7 @@ The one comparison of a choice's pick against its reference on the selection win
 
 Per aspect, counts of GO terms per unit at t0, p = (K + m pi) / (N + m), read for the targets with a witness.
 
-Names today: PROTEA: count_map, run_count_map; port: mapa_cuentas.py; panel: Mapa de familias, Mapa de temas.
+Names today: PROTEA: count_map, run_count_map; PROTEA, accepted method code suffixes: -accession, -grid; port: mapa_cuentas.py; panel: Mapa de familias, Mapa de temas.
 
 ## coverage guarantee
 
@@ -127,7 +127,7 @@ Names today: PROTEA: count_map, run_count_map; port: mapa_cuentas.py; panel: Map
 
 The recipe's last step: per protein and aspect, when no candidate GO term not yet known reaches the declared threshold, the best one is raised to it and flagged forced; when there is none, the best GO term of the frequency set is forced instead and flagged reserve. Adoption comparisons read arms without it, and its cost is its own declared comparison.
 
-Names today: PROTEA, accepted names: apply_coverage_guarantee, raise_best_unknown_term_to_declared_threshold, forced, reserve.
+Names today: PROTEA, accepted names: apply_coverage_guarantee, raise_best_unknown_term_to_declared_threshold, forced, reserve, delivered_reading.
 
 ## cross-fitting
 
@@ -220,7 +220,7 @@ Names today: ORM and API: evaluation_set; user interface: window, time window; p
 
 The declared class of the evidence of a GOA row in a cut (ADR-D59). Read on a donated annotation, it is the transfer channel the literature ladder names in its donor policy.
 
-Names today: ORM: evidence_channel_table; ADR-D59: evidence channel; notes: canal = dimensión de embedding; literature ladder: transfer channel.
+Names today: ORM: evidence_channel_table; ADR-D59: evidence channel; notes: canal = dimensión de embedding; literature ladder: transfer channel; PROTEA, accepted names: channel_mask.
 
 ## exploration
 
@@ -298,7 +298,7 @@ Names today: PROTEA, accepted names: protea/core/operating_point/hierarchy.py.
 
 Rung 2b: a vote over all of a target's hits in the cut's homology table, each GO term scored by the bit score times the identity of the hits that carry it, over those of all the hits; its variants change the rule, the denominator, a cap on the hits and how twins are counted.
 
-Names today: PROTEA, accepted names: run_homology_transfer, bitscore_vote, bitscore_identity_vote; calibration vocabulary: homology_vote.
+Names today: PROTEA, accepted names: run_homology_transfer, bitscore_vote, bitscore_identity_vote, homology_self_scores, scores_uri, scores_sha256, queries_without_self_score; calibration vocabulary: homology_vote.
 
 ## information accretion table
 
@@ -608,7 +608,7 @@ One step of the literature ladder: a method, with its literal variants and its r
 
 A label-free map applied to a bank's vectors and to the queries before the cosine search, built from the space statistics of the bank at the cut. The literal variant removes a fixed count of directions, floor(d / 100), and is never adopted.
 
-Names today: protea-contracts, accepted names: EmbeddingTransform, embedding_transform.
+Names today: protea-contracts, accepted names: EmbeddingTransform, embedding_transform; PROTEA, accepted names: search_space, SearchSpace.
 
 ## segment encoder
 
