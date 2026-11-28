@@ -11,8 +11,9 @@ description: >-
   Version 0.2: the concept candidates of the closure map of 2026-11-20, imported as they were found and
   written in English, whose names the author has not chosen yet; the concepts of the literature ladder,
   whose names he accepted on 2026-11-28; and the sixteen rungs of the ladder, each a concept card with
-  its order, its display position and the family of its method, accepted the same day. It also records
-  the code names of the ladder's third implementation batch, accepted the same evening.
+  its order, its display position and, but for the reading of an arm, the family of its method,
+  accepted the same day. It also records the code names of the ladder's third implementation batch,
+  accepted the same evening.
 concepts:
 - id: go_term
   status: candidate
@@ -319,7 +320,7 @@ concepts:
   - no_knowledge
   - limited_knowledge
   - partial_knowledge
-  external_match: 'CAFA: no-, limited- y partial-knowledge'
+  external_match: 'CAFA: no-, limited- and partial-knowledge'
   current_names:
   - where: code
     names:
@@ -412,7 +413,7 @@ concepts:
   top_category: data
   definition_en: >-
     A weight per GO term, computed per corpus and evidence regime and identified by its sha256 (ADR-D46).
-  external_match: 'Clark y Radivojac 2013: information accretion'
+  external_match: 'Clark and Radivojac 2013: information accretion'
   current_names:
   - where: ORM
     names:
@@ -1186,7 +1187,6 @@ concepts:
   - where: PROTEA, accepted names
     names:
     - search_space
-    - SearchSpace
   review_note: >-
     A sixth value, whiten_above_storage_noise, enters only if the space statistics count directions
     below the shrinkage or the storage floor, and then with the contracts' second release.
@@ -1609,8 +1609,9 @@ concepts:
   definition_en: >-
     Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the
     same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the
-    reviewed proteins, not propagated, the 500 most frequent GO terms of each aspect); the recipe variant
-    counts the propagated annotations.
+    reviewed proteins, not propagated, every score at or below its aspect's 500th largest set to zero, so
+    at most 499 GO terms per aspect, as LAFA's n_terms of 1500 gives); the recipe variant counts the
+    propagated annotations.
   external_match: 'CAFA Naive baseline; DeepGOPlus N_f / N_total; LAFA naive.py'
   current_names:
   - where: PROTEA, accepted names

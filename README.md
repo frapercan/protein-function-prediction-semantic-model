@@ -23,8 +23,9 @@ Version 0.2, under review.
   The same acceptance amends three cards of version 0 (evidence channel, donor set, target
   population) and settles where a method that combines families belongs (method family).
 - Version 0.2 places the rungs of the ladder. A rung is a concept card that carries a ladder
-  order (an integer spaced by ten), a display position (such as 2b) and the family of its
-  method; the ladder is the cards that carry an order, sorted by it. It adds the nine rung
+  order (an integer spaced by ten), a display position (such as 2b) and, when its writers
+  register a method of their own, that method's family (the reading of an arm, rung 5,
+  carries none); the ladder is the cards that carry an order, sorted by it. It adds the nine rung
   cards that had none (GO term frequency, own annotations, top-hit identity, homology vote,
   nearest neighbour, neighbourhood vote, recipe across language models, own-annotation ranker,
   segment encoder), accepts the count map's name, and gives the knowledge category and the

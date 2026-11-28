@@ -1,5 +1,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix protein_function_prediction: <https://w3id.org/protein-function-prediction-semantic-model/> .
+@prefix protein_function_prediction_slot: <https://w3id.org/protein-function-prediction-semantic-model/slot/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -62,9 +63,9 @@ protein_function_prediction:calibrated_maximum a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "calibrated maximum"@en,
         "máximo calibrado"@es ;
-    protein_function_prediction:ladder_order 110 ;
-    protein_function_prediction:ladder_position "8" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 110 ;
+    protein_function_prediction_slot:ladder_position "8" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -97,9 +98,9 @@ protein_function_prediction:count_map a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "count map"@en,
         "mapa de conteos"@es ;
-    protein_function_prediction:ladder_order 160 ;
-    protein_function_prediction:ladder_position "12a" ;
-    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction_slot:ladder_order 160 ;
+    protein_function_prediction_slot:ladder_position "12a" ;
+    protein_function_prediction_slot:method_family "explainable-units" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -239,9 +240,9 @@ protein_function_prediction:homology_vote a skos:Concept ;
     skos:prefLabel "homology vote"@en,
         "voto por homología"@es ;
     protein_function_prediction:external_match "DeepGOPlus DiamondScore: a bit-score weighted vote over homologs" ;
-    protein_function_prediction:ladder_order 40 ;
-    protein_function_prediction:ladder_position "2b" ;
-    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction_slot:ladder_order 40 ;
+    protein_function_prediction_slot:ladder_position "2b" ;
+    protein_function_prediction_slot:method_family "explainable-units" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -250,7 +251,7 @@ protein_function_prediction:information_accretion_table a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "information accretion table"@en,
         "tabla de acreción de información"@es ;
-    protein_function_prediction:external_match "Clark y Radivojac 2013: information accretion" ;
+    protein_function_prediction:external_match "Clark and Radivojac 2013: information accretion" ;
     protein_function_prediction:status "candidate" ;
     protein_function_prediction:top_category "data" .
 
@@ -259,7 +260,7 @@ protein_function_prediction:knowledge_category a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "knowledge category"@en,
         "categoría de conocimiento"@es ;
-    protein_function_prediction:external_match "CAFA: no-, limited- y partial-knowledge" ;
+    protein_function_prediction:external_match "CAFA: no-, limited- and partial-knowledge" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "data" .
 
@@ -351,9 +352,9 @@ protein_function_prediction:nearest_neighbour a skos:Concept ;
     skos:prefLabel "nearest neighbour"@en,
         "vecino más cercano"@es ;
     protein_function_prediction:external_match "goPredSim and FANTASIA: GO annotation transfer by embedding similarity" ;
-    protein_function_prediction:ladder_order 50 ;
-    protein_function_prediction:ladder_position "3" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 50 ;
+    protein_function_prediction_slot:ladder_position "3" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -363,9 +364,9 @@ protein_function_prediction:neighbourhood_vote a skos:Concept ;
     skos:prefLabel "neighbourhood vote"@en,
         "voto del vecindario"@es ;
     protein_function_prediction:external_match "goPredSim: k nearest neighbours; NetGO and InterLabelGO+: similarity-weighted votes" ;
-    protein_function_prediction:ladder_order 60 ;
-    protein_function_prediction:ladder_position "4" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 60 ;
+    protein_function_prediction_slot:ladder_position "4" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -410,9 +411,9 @@ protein_function_prediction:own_annotation_ranker a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "own-annotation ranker"@en,
         "ordenador de anotaciones propias"@es ;
-    protein_function_prediction:ladder_order 120 ;
-    protein_function_prediction:ladder_position "9" ;
-    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction_slot:ladder_order 120 ;
+    protein_function_prediction_slot:ladder_position "9" ;
+    protein_function_prediction_slot:method_family "explainable-units" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -422,9 +423,9 @@ protein_function_prediction:own_annotations a skos:Concept ;
     skos:prefLabel "own annotations"@en,
         "anotaciones propias"@es ;
     protein_function_prediction:external_match "democafa goa_nonexp baseline" ;
-    protein_function_prediction:ladder_order 20 ;
-    protein_function_prediction:ladder_position "1" ;
-    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction_slot:ladder_order 20 ;
+    protein_function_prediction_slot:ladder_position "1" ;
+    protein_function_prediction_slot:method_family "explainable-units" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -451,8 +452,8 @@ protein_function_prediction:reading_of_an_arm a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "reading of an arm"@en,
         "lectura de una configuración evaluada"@es ;
-    protein_function_prediction:ladder_order 70 ;
-    protein_function_prediction:ladder_position "5" ;
+    protein_function_prediction_slot:ladder_order 70 ;
+    protein_function_prediction_slot:ladder_position "5" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -469,9 +470,9 @@ protein_function_prediction:recipe_across_language_models a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "recipe across language models"@en,
         "receta en los modelos de lenguaje"@es ;
-    protein_function_prediction:ladder_order 90 ;
-    protein_function_prediction:ladder_position "6b" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 90 ;
+    protein_function_prediction_slot:ladder_position "6b" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -489,9 +490,9 @@ protein_function_prediction:regime_calibration a skos:Concept ;
     skos:prefLabel "regime calibration"@en,
         "calibración por régimen"@es ;
     protein_function_prediction:external_match "GOtcha 2004 and COFACTOR 2019: calibration of a score by its regime" ;
-    protein_function_prediction:ladder_order 100 ;
-    protein_function_prediction:ladder_position "7" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 100 ;
+    protein_function_prediction_slot:ladder_position "7" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -501,9 +502,9 @@ protein_function_prediction:reranker_over_sources a skos:Concept ;
     skos:prefLabel "reranker over sources"@en,
         "reordenador sobre las fuentes"@es ;
     protein_function_prediction:external_match "GOLabeler and NetGO: learning to rank over the scores of components" ;
-    protein_function_prediction:ladder_order 140 ;
-    protein_function_prediction:ladder_position "11a" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 140 ;
+    protein_function_prediction_slot:ladder_position "11a" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -521,9 +522,9 @@ protein_function_prediction:search_space_transform a skos:Concept ;
     skos:prefLabel "search-space transform"@en,
         "transformación del espacio de búsqueda"@es ;
     protein_function_prediction:external_match "Mu and Viswanath 2018 (all-but-the-top); Su et al. (whitening); Bouras and Edwards 2026 (preprint)" ;
-    protein_function_prediction:ladder_order 80 ;
-    protein_function_prediction:ladder_position "6" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 80 ;
+    protein_function_prediction_slot:ladder_position "6" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -533,9 +534,9 @@ protein_function_prediction:segment_encoder a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "segment encoder"@en,
         "codificador de segmentos"@es ;
-    protein_function_prediction:ladder_order 170 ;
-    protein_function_prediction:ladder_position "12b" ;
-    protein_function_prediction:method_family "world-model" ;
+    protein_function_prediction_slot:ladder_order 170 ;
+    protein_function_prediction_slot:ladder_position "12b" ;
+    protein_function_prediction_slot:method_family "world-model" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -633,9 +634,9 @@ protein_function_prediction:supervised_head a skos:Concept ;
     skos:prefLabel "supervised head"@en,
         "cabeza supervisada"@es ;
     protein_function_prediction:external_match "NetGO 3.0 LR-ESM and GOLabeler: a logistic regression per GO term" ;
-    protein_function_prediction:ladder_order 130 ;
-    protein_function_prediction:ladder_position "10" ;
-    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction_slot:ladder_order 130 ;
+    protein_function_prediction_slot:ladder_position "10" ;
+    protein_function_prediction_slot:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -657,14 +658,14 @@ protein_function_prediction:target_population a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:term_frequency a skos:Concept ;
-    skos:definition "Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the reviewed proteins, not propagated, the 500 most frequent GO terms of each aspect); the recipe variant counts the propagated annotations."@en ;
+    skos:definition "Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the reviewed proteins, not propagated, every score at or below its aspect's 500th largest set to zero, so at most 499 GO terms per aspect, as LAFA's n_terms of 1500 gives); the recipe variant counts the propagated annotations."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "GO term frequency"@en,
         "frecuencia de términos GO"@es ;
     protein_function_prediction:external_match "CAFA Naive baseline; DeepGOPlus N_f / N_total; LAFA naive.py" ;
-    protein_function_prediction:ladder_order 10 ;
-    protein_function_prediction:ladder_position "0" ;
-    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction_slot:ladder_order 10 ;
+    protein_function_prediction_slot:ladder_position "0" ;
+    protein_function_prediction_slot:method_family "explainable-units" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -674,9 +675,9 @@ protein_function_prediction:top_hit_identity a skos:Concept ;
     skos:prefLabel "top-hit identity"@en,
         "identidad del mejor acierto"@es ;
     protein_function_prediction:external_match "CAFA BLAST baseline" ;
-    protein_function_prediction:ladder_order 30 ;
-    protein_function_prediction:ladder_position "2a" ;
-    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction_slot:ladder_order 30 ;
+    protein_function_prediction_slot:ladder_position "2a" ;
+    protein_function_prediction_slot:method_family "explainable-units" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 

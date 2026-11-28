@@ -32,13 +32,15 @@ SCHEMA = ROOT / "schema" / "protein_function_prediction_semantic_model.yaml"
 CONCEPTS = ROOT / "data" / "concepts.yaml"
 BASE = "https://w3id.org/protein-function-prediction-semantic-model/"
 MODEL = Namespace(BASE)
+#: The slots of the rung cards live apart from the concept IRIs (a concept is also named method_family).
+SLOT = Namespace(BASE + "slot/")
 
 # (output path relative to the root, LinkML generator and its arguments)
 GENERATORS: list[tuple[str, list[str]]] = [
     ("generated/json_schema/protein_function_prediction_semantic_model.schema.json",
      ["gen-json-schema", "--top-class", "SemanticModel"]),
     ("generated/owl/protein_function_prediction_semantic_model.owl.ttl",
-     ["gen-owl", "--no-metadata"]),
+     ["gen-owl", "--no-metadata", "--no-use-native-uris"]),
     ("generated/python/protein_function_prediction_semantic_model.py",
      ["gen-pydantic", "--no-metadata"]),
 ]
@@ -64,6 +66,7 @@ def skos_turtle(model: dict) -> str:
     g.bind("skos", SKOS)
     g.bind("dcterms", DCTERMS)
     g.bind("protein_function_prediction", MODEL)
+    g.bind("protein_function_prediction_slot", SLOT)
     scheme = URIRef(BASE + model["id"])
     g.add((scheme, RDF.type, SKOS.ConceptScheme))
     g.add((scheme, DCTERMS.title, Literal(model["title"], lang="en")))
@@ -89,7 +92,7 @@ def skos_turtle(model: dict) -> str:
         g.add((node, MODEL.top_category, Literal(c["top_category"])))
         for slot in RUNG_SLOTS:
             if slot in c:
-                g.add((node, MODEL[slot], Literal(c[slot])))
+                g.add((node, SLOT[slot], Literal(c[slot])))
     return g.serialize(format="turtle")
 
 
@@ -148,7 +151,7 @@ def glossary(model: dict) -> str:
         if c.get("values"):
             lines.append("- **Values:** " + ", ".join(f"`{v}`" for v in c["values"]))
         if c.get("examples"):
-            lines.append("- **Examples:** " + "; ".join(c["examples"]))
+            lines.append("- **Examples:** " + "; ".join(e.replace("<", "\\<") for e in c["examples"]))
         if c.get("external_match"):
             lines.append(f"- **Outside the project:** {c['external_match']}")
         lines += ["", c["definition_en"], ""]

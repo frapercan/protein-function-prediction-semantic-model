@@ -273,7 +273,7 @@ Names today: PROTEA: go_term; panel: término; laboratory: término, term.
 - **Rung:** 0 of the literature ladder (order 10); method family: explainable-units
 - **Outside the project:** CAFA Naive baseline; DeepGOPlus N_f / N_total; LAFA naive.py
 
-Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the reviewed proteins, not propagated, the 500 most frequent GO terms of each aspect); the recipe variant counts the propagated annotations.
+Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the reviewed proteins, not propagated, every score at or below its aspect's 500th largest set to zero, so at most 499 GO terms per aspect, as LAFA's n_terms of 1500 gives); the recipe variant counts the propagated annotations.
 
 Names today: PROTEA, accepted names: run_term_frequency, lafa_direct, propagated; calibration vocabulary: prior.
 
@@ -305,7 +305,7 @@ Names today: PROTEA, accepted names: run_homology_transfer, bitscore_vote, bitsc
 - **Identifier:** `information_accretion_table` (candidate)
 - **Spanish label:** tabla de acreción de información
 - **Top category:** data
-- **Outside the project:** Clark y Radivojac 2013: information accretion
+- **Outside the project:** Clark and Radivojac 2013: information accretion
 
 A weight per GO term, computed per corpus and evidence regime and identified by its sha256 (ADR-D46).
 
@@ -317,7 +317,7 @@ Names today: ORM: information_accretion_set; data: IA_cafa6.tsv; user interface:
 - **Spanish label:** categoría de conocimiento
 - **Top category:** data
 - **Values:** `no_knowledge`, `limited_knowledge`, `partial_knowledge`
-- **Outside the project:** CAFA: no-, limited- y partial-knowledge
+- **Outside the project:** CAFA: no-, limited- and partial-knowledge
 
 The category of a target in an aspect: no knowledge when it has no experimental annotation at t0 in any aspect, limited knowledge when it has one only in other aspects, partial knowledge when it already has one in the aspect being evaluated.
 
@@ -608,7 +608,7 @@ One step of the literature ladder: a method, with its literal variants and its r
 
 A label-free map applied to a bank's vectors and to the queries before the cosine search, built from the space statistics of the bank at the cut. The literal variant removes a fixed count of directions, floor(d / 100), and is never adopted.
 
-Names today: protea-contracts, accepted names: EmbeddingTransform, embedding_transform; PROTEA, accepted names: search_space, SearchSpace.
+Names today: protea-contracts, accepted names: EmbeddingTransform, embedding_transform; PROTEA, accepted names: search_space.
 
 ## segment encoder
 
@@ -616,7 +616,7 @@ Names today: protea-contracts, accepted names: EmbeddingTransform, embedding_tra
 - **Spanish label:** codificador de segmentos
 - **Top category:** method
 - **Rung:** 12b of the literature ladder (order 170); method family: world-model
-- **Examples:** jepa-segments/<sha256 of the encoder weights>
+- **Examples:** jepa-segments/\<sha256 of the encoder weights>
 
 Rung 12b: a label-free encoder of protein segments, trained on the member sequences of the instance's photos, whose vectors are searched as a protein language model's are. Each trained encoder is one embedding configuration, named after the sha256 of its weights.
 
