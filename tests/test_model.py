@@ -151,3 +151,83 @@ def test_the_glossary_note_is_true_for_the_statuses_it_finds(build_script, statu
     else:
         assert note[0].startswith(opening)
         assert note[-1] == ""
+
+
+# The rungs of the literature ladder ---------------------------------------------------------
+
+#: The rung cards in ladder order, as the author placed them on 2026-11-28, with each one's
+#: display position and family (None: the reading of an arm registers no method of its own).
+LADDER = (
+    ("term_frequency", "0", "explainable-units"),
+    ("own_annotations", "1", "explainable-units"),
+    ("top_hit_identity", "2a", "explainable-units"),
+    ("homology_vote", "2b", "explainable-units"),
+    ("nearest_neighbour", "3", "embedding-reranker"),
+    ("neighbourhood_vote", "4", "embedding-reranker"),
+    ("reading_of_an_arm", "5", None),
+    ("search_space_transform", "6", "embedding-reranker"),
+    ("recipe_across_language_models", "6b", "embedding-reranker"),
+    ("regime_calibration", "7", "embedding-reranker"),
+    ("calibrated_maximum", "8", "embedding-reranker"),
+    ("own_annotation_ranker", "9", "explainable-units"),
+    ("supervised_head", "10", "embedding-reranker"),
+    ("reranker_over_sources", "11a", "embedding-reranker"),
+    ("count_map", "12a", "explainable-units"),
+    ("segment_encoder", "12b", "world-model"),
+)
+
+
+def rungs(model: dict) -> list[dict]:
+    """The rung cards, sorted by their ladder order."""
+    return sorted((c for c in model["concepts"] if "ladder_order" in c), key=lambda c: c["ladder_order"])
+
+
+def test_the_ladder_is_the_cards_with_an_order(model: dict) -> None:
+    found = [(c["id"], c["ladder_position"], c.get("method_family")) for c in rungs(model)]
+    assert found == list(LADDER)
+
+
+def test_ladder_orders_are_unique_and_spaced_by_ten(model: dict) -> None:
+    orders = [c["ladder_order"] for c in rungs(model)]
+    assert len(orders) == len(set(orders))
+    assert all(order % 10 == 0 for order in orders)
+
+
+def test_a_display_position_comes_with_an_order(model: dict) -> None:
+    for c in model["concepts"]:
+        assert ("ladder_position" in c) == ("ladder_order" in c), c["id"]
+        if "method_family" in c:
+            assert "ladder_order" in c, c["id"]
+
+
+def test_a_family_is_a_value_of_the_method_family_card(model: dict) -> None:
+    families = next(c for c in model["concepts"] if c["id"] == "method_family")["values"]
+    for c in rungs(model):
+        if "method_family" in c:
+            assert c["method_family"] in families, c["id"]
+
+
+def test_every_rung_card_is_an_accepted_method(model: dict) -> None:
+    for c in rungs(model):
+        assert c["status"] == "accepted" and c["top_category"] == "method", c["id"]
+
+
+def test_the_category_and_the_aspect_take_descriptive_values(model: dict) -> None:
+    cards = {c["id"]: c for c in model["concepts"]}
+    assert cards["knowledge_category"]["values"] == [
+        "no_knowledge",
+        "limited_knowledge",
+        "partial_knowledge",
+    ]
+    assert cards["aspect"]["values"] == [
+        "biological_process",
+        "molecular_function",
+        "cellular_component",
+    ]
+
+
+def test_schema_data_and_project_carry_one_version(model: dict) -> None:
+    schema = yaml.safe_load(SCHEMA.read_text(encoding="utf-8"))
+    project = re.search(r'^version = "([^"]+)"', (ROOT / "pyproject.toml").read_text(), re.M)
+    assert project is not None
+    assert schema["version"] == model["version"] == project.group(1)

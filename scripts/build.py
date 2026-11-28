@@ -32,6 +32,9 @@ SCHEMA = ROOT / "schema" / "protein_function_prediction_semantic_model.yaml"
 CONCEPTS = ROOT / "data" / "concepts.yaml"
 BASE = "https://w3id.org/protein-function-prediction-semantic-model/"
 MODEL = Namespace(BASE)
+#: The schema's own terms (classes and slots) live apart from the concept IRIs: a concept is also
+#: named method_family, and a concept must never be a property or a class.
+SCHEMA_TERMS = Namespace(BASE + "schema/")
 
 # (output path relative to the root, LinkML generator and its arguments)
 GENERATORS: list[tuple[str, list[str]]] = [
@@ -64,6 +67,7 @@ def skos_turtle(model: dict) -> str:
     g.bind("skos", SKOS)
     g.bind("dcterms", DCTERMS)
     g.bind("protein_function_prediction", MODEL)
+    g.bind("protein_function_prediction_schema", SCHEMA_TERMS)
     scheme = URIRef(BASE + model["id"])
     g.add((scheme, RDF.type, SKOS.ConceptScheme))
     g.add((scheme, DCTERMS.title, Literal(model["title"], lang="en")))
@@ -84,10 +88,28 @@ def skos_turtle(model: dict) -> str:
         for example in c.get("examples", []):
             g.add((node, SKOS.example, Literal(example)))
         if "external_match" in c:
-            g.add((node, MODEL.external_match, Literal(c["external_match"])))
-        g.add((node, MODEL.status, Literal(c["status"])))
-        g.add((node, MODEL.top_category, Literal(c["top_category"])))
+            g.add((node, SCHEMA_TERMS.external_match, Literal(c["external_match"])))
+        g.add((node, SCHEMA_TERMS.status, Literal(c["status"])))
+        g.add((node, SCHEMA_TERMS.top_category, Literal(c["top_category"])))
+        for slot in RUNG_SLOTS:
+            if slot in c:
+                g.add((node, SCHEMA_TERMS[slot], Literal(c[slot])))
     return g.serialize(format="turtle")
+
+
+#: The slots that place a rung card in the literature ladder.
+RUNG_SLOTS = ("ladder_order", "ladder_position", "method_family")
+
+
+def rung_line(c: dict) -> str | None:
+    """The glossary line that places a rung card in the ladder, or None for any other card."""
+    if "ladder_order" not in c:
+        return None
+    family = c.get("method_family") or "none (no method of its own)"
+    return (
+        f"- **Rung:** {c['ladder_position']} of the literature ladder (order {c['ladder_order']}); "
+        f"method family: {family}"
+    )
 
 
 def status_note(concepts: list[dict]) -> list[str]:
@@ -125,10 +147,12 @@ def glossary(model: dict) -> str:
         if len(c["candidate_names"]) > 1 or c["candidate_names"][0] != c["label_en"]:
             lines.append("- **Candidate names:** " + "; ".join(c["candidate_names"]))
         lines.append(f"- **Top category:** {c['top_category'].replace('_', ' ')}")
+        if rung_line(c):
+            lines.append(rung_line(c))
         if c.get("values"):
             lines.append("- **Values:** " + ", ".join(f"`{v}`" for v in c["values"]))
         if c.get("examples"):
-            lines.append("- **Examples:** " + "; ".join(c["examples"]))
+            lines.append("- **Examples:** " + "; ".join(e.replace("<", "\\<") for e in c["examples"]))
         if c.get("external_match"):
             lines.append(f"- **Outside the project:** {c['external_match']}")
         lines += ["", c["definition_en"], ""]

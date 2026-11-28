@@ -1,6 +1,6 @@
 [project]
 name = "protein-function-prediction-semantic-model"
-version = "0.0.0"
+version = "0.2.0"
 description = "Semantic model of protein function prediction: its concepts, the components that implement or document them, and the relations between them."
 readme = "README.md"
 requires-python = ">=3.11"

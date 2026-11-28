@@ -8,14 +8,15 @@ description: >-
   components. Its first ring is concept, component and relation; the model itself is a SKOS
   concept scheme. Two words are reserved: ontology names only the Gene Ontology, and term names
   only a GO term.
-version: 0.0.0
+version: 0.2.0
 prefixes:
   linkml: https://w3id.org/linkml/
   skos: http://www.w3.org/2004/02/skos/core#
   prov: http://www.w3.org/ns/prov#
   dcterms: http://purl.org/dc/terms/
   protein_function_prediction: https://w3id.org/protein-function-prediction-semantic-model/
-default_prefix: protein_function_prediction
+  protein_function_prediction_schema: https://w3id.org/protein-function-prediction-semantic-model/schema/
+default_prefix: protein_function_prediction_schema
 default_range: string
 imports:
   - linkml:types
@@ -59,6 +60,9 @@ classes:
       - deprecated_names
       - naming_conflict
       - review_note
+      - ladder_order
+      - ladder_position
+      - method_family
     rules:
       - description: An accepted concept has its one canonical name.
         preconditions:
@@ -195,6 +199,22 @@ slots:
   review_note:
     description: A fact found after the import that the review has to settle.
     slot_uri: skos:editorialNote
+  ladder_order:
+    description: >-
+      Where a rung of the literature ladder sits in it: an integer, spaced by ten so that a later
+      rung is inserted without renumbering the others. Only a rung card carries it, and the
+      ladder is the cards that do, sorted by it.
+    range: integer
+    minimum_value: 0
+  ladder_position:
+    description: >-
+      The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order.
+    pattern: "^[0-9]+[a-z]?$"
+  method_family:
+    description: >-
+      The family of a rung's method, one of the values of the method family concept. The family
+      is part of a method's identity, so a rung whose writers register no method of their own
+      (the reading of an arm) carries none.
   paths:
     description: Where the component lives, as repository paths.
     multivalued: true
