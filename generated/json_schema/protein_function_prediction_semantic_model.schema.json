@@ -145,6 +145,29 @@
                     "description": "Label in Spanish, for the Spanish user interface; the only field of a concept that is not in English.",
                     "type": "string"
                 },
+                "ladder_order": {
+                    "description": "Where a rung of the literature ladder sits in it: an integer, spaced by ten so that a later rung is inserted without renumbering the others. Only a rung card carries it, and the ladder is the cards that do, sorted by it.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "ladder_position": {
+                    "description": "The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order.",
+                    "pattern": "^[0-9]+[a-z]?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "method_family": {
+                    "description": "The family of a rung's method, one of the values of the method family concept. The family is part of a method's identity, so a rung whose writers register no method of their own (the reading of an arm) carries none.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "naming_conflict": {
                     "description": "Why the current names conflict, as the closure map found it.",
                     "type": [
@@ -424,6 +447,6 @@
     ],
     "title": "protein_function_prediction_semantic_model",
     "type": "object",
-    "version": "0.0.0"
+    "version": "0.2.0"
 }
 

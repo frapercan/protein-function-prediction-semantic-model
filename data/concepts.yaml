@@ -1,13 +1,16 @@
-# Semantic model of protein function prediction: concepts, version 0.1.
+# Semantic model of protein function prediction: concepts, version 0.2.
 # Version 0 was imported from the closure map of 2026-11-20; version 0.1 adds the concepts of the
-# literature ladder, with the names the author accepted on 2026-11-28. See README.md, "Status".
+# literature ladder, with the names the author accepted on 2026-11-28; version 0.2 places the rungs
+# of the ladder (their order, their display position and their family), with the rung cards, the
+# names and the values he accepted the same day. See README.md, "Status".
 id: protein_function_prediction_semantic_model
 title: Semantic model of protein function prediction
-version: 0.1.0
+version: 0.2.0
 description: >-
-  Version 0.1: the 35 concept candidates of the closure map of 2026-11-20, imported as they were found and
-  written in English, whose names the author has not chosen yet; and the 34 concepts of the literature
-  ladder, whose names he accepted on 2026-11-28.
+  Version 0.2: the concept candidates of the closure map of 2026-11-20, imported as they were found and
+  written in English, whose names the author has not chosen yet; the concepts of the literature ladder,
+  whose names he accepted on 2026-11-28; and the sixteen rungs of the ladder, each a concept card with
+  its order, its display position and the family of its method, accepted the same day.
 concepts:
 - id: go_term
   status: candidate
@@ -299,24 +302,31 @@ concepts:
     The glossary calls t0 the truth; the user interface mixes two names; the panel says full truth with
     two policies.
 - id: knowledge_category
-  status: candidate
+  status: accepted
   label_en: knowledge category
   label_es: categoría de conocimiento
   candidate_names:
   - knowledge category
+  canonical_name: knowledge category
   top_category: data
   definition_en: >-
-    NK: no experimental annotation at t0 in any aspect; LK: only in other aspects; PK: already in the
-    aspect being evaluated.
+    The category of a target in an aspect: no knowledge when it has no experimental annotation at t0 in
+    any aspect, limited knowledge when it has one only in other aspects, partial knowledge when it
+    already has one in the aspect being evaluated.
   values:
-  - NK
-  - LK
-  - PK
+  - no_knowledge
+  - limited_knowledge
+  - partial_knowledge
   external_match: 'CAFA: no-, limited- y partial-knowledge'
   current_names:
   - where: code
     names:
     - Category
+  - where: PROTEA codes
+    names:
+    - NK
+    - LK
+    - PK
   - where: glossary
     names:
     - NK por espacio de nombres
@@ -330,24 +340,30 @@ concepts:
     - settings
   naming_conflict: Three definitions of NK and five names; tier is left only for the levels of the corpus.
 - id: aspect
-  status: candidate
+  status: accepted
   label_en: aspect
   label_es: aspecto
   candidate_names:
   - aspect
+  canonical_name: aspect
   top_category: data
   definition_en: >-
-    A branch of GO: biological process, molecular function or cellular component, with the codes P, F
-    and C.
+    A branch of GO: biological process, molecular function or cellular component, the Gene Ontology's
+    own namespace names.
   values:
-  - P
-  - F
-  - C
+  - biological_process
+  - molecular_function
+  - cellular_component
   external_match: 'Gene Ontology: aspect'
   current_names:
   - where: code
     names:
     - Aspect
+  - where: PROTEA codes
+    names:
+    - P
+    - F
+    - C
   - where: glossary
     names:
     - namespaces BPO
@@ -735,11 +751,12 @@ concepts:
     - fam-estr
   naming_conflict: Shortened to family, it clashes with method family; zero mentions in the docs.
 - id: count_map
-  status: candidate
+  status: accepted
   label_en: count map
   label_es: mapa de conteos
   candidate_names:
   - count map
+  canonical_name: count map
   top_category: method
   definition_en: >-
     Per aspect, counts of GO terms per unit at t0, p = (K + m pi) / (N + m), read for the targets with
@@ -757,6 +774,9 @@ concepts:
     - Mapa de familias
     - Mapa de temas
   naming_conflict: The panel names it after its units; the docs are silent; its ADRs are unmerged.
+  ladder_order: 160
+  ladder_position: 12a
+  method_family: explainable-units
 - id: knowledge_world_model
   status: candidate
   label_en: knowledge world model
@@ -1157,6 +1177,9 @@ concepts:
   review_note: >-
     A sixth value, whiten_above_storage_noise, enters only if the space statistics count directions
     below the shrinkage or the storage floor, and then with the contracts' second release.
+  ladder_order: 80
+  ladder_position: '6'
+  method_family: embedding-reranker
 - id: space_statistics
   status: accepted
   label_en: space statistics
@@ -1219,6 +1242,8 @@ concepts:
     The per-cell calibration of an arm, rung 5: fitted out of fold on the benchmark pairs of the fitting
     windows and applied to the arm's set on the selection window. Every arm is compared through its
     reading, and its declared threshold lives on that scale.
+  ladder_order: 70
+  ladder_position: '5'
 - id: operating_point_reading
   status: accepted
   label_en: operating point reading
@@ -1320,6 +1345,9 @@ concepts:
     - fit_regime_calibration
     - apply_regime_calibration
     - regime_calibration
+  ladder_order: 100
+  ladder_position: '7'
+  method_family: embedding-reranker
 - id: calibration_stratum
   status: accepted
   label_en: calibration stratum
@@ -1358,6 +1386,9 @@ concepts:
     - fit_calibrated_maximum
     - apply_calibrated_maximum
     - calibrated_maximum
+  ladder_order: 110
+  ladder_position: '8'
+  method_family: embedding-reranker
 - id: shared_fold_assignment
   status: accepted
   label_en: shared fold assignment
@@ -1427,6 +1458,9 @@ concepts:
     - load_head_weights
     - apply_supervised_head
     - supervised_head
+  ladder_order: 130
+  ladder_position: '10'
+  method_family: embedding-reranker
 - id: reranker_over_sources
   status: accepted
   label_en: reranker over sources
@@ -1446,6 +1480,9 @@ concepts:
     - export_reranker_dataset_from_sources
     - fit_reranker_over_sources
     - apply_reranker_over_sources
+  ladder_order: 140
+  ladder_position: '11a'
+  method_family: embedding-reranker
 - id: t0_category
   status: accepted
   label_en: t0 category
@@ -1547,3 +1584,213 @@ concepts:
     The one comparison of a choice's pick against its reference on the selection window, under the
     adoption rule: if the verdict is not for the pick, the reference stays. The selection window is read
     once per choice.
+- id: term_frequency
+  status: accepted
+  label_en: GO term frequency
+  label_es: frecuencia de términos GO
+  candidate_names:
+  - GO term frequency
+  canonical_name: GO term frequency
+  top_category: method
+  definition_en: >-
+    Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the
+    same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the
+    reviewed proteins, not propagated, the 500 most frequent GO terms of each aspect); the recipe variant
+    counts the propagated annotations.
+  external_match: 'CAFA Naive baseline; DeepGOPlus N_f / N_total; LAFA naive.py'
+  current_names:
+  - where: PROTEA, accepted names
+    names:
+    - run_term_frequency
+    - lafa_direct
+    - propagated
+  - where: calibration vocabulary
+    names:
+    - prior
+  ladder_order: 10
+  ladder_position: '0'
+  method_family: explainable-units
+- id: own_annotations
+  status: accepted
+  label_en: own annotations
+  label_es: anotaciones propias
+  candidate_names:
+  - own annotations
+  canonical_name: own annotations
+  top_category: method
+  definition_en: >-
+    Rung 1: a protein's own annotations at t0 that are not experimental (curated, phylogenetic and
+    electronic evidence), given to it as predictions: the floor every transfer has to clear. The literal
+    variant reproduces democafa's non-experimental baseline; the recipe variant reads the recipe
+    channels.
+  external_match: 'democafa goa_nonexp baseline'
+  current_names:
+  - where: PROTEA
+    names:
+    - run_own_annotations
+  - where: calibration vocabulary
+    names:
+    - own_annotations
+  ladder_order: 20
+  ladder_position: '1'
+  method_family: explainable-units
+- id: top_hit_identity
+  status: accepted
+  label_en: top-hit identity
+  label_es: identidad del mejor acierto
+  candidate_names:
+  - top-hit identity
+  canonical_name: top-hit identity
+  top_category: method
+  definition_en: >-
+    Rung 2a: the GO terms of a target's best hit in the cut's homology table, each scored by the hit's
+    sequence identity: the CAFA BLAST baseline. Its literal variant reads the CAFA5 donors.
+  external_match: 'CAFA BLAST baseline'
+  current_names:
+  - where: PROTEA, accepted names
+    names:
+    - run_homology_transfer
+    - top_hit_identity
+  ladder_order: 30
+  ladder_position: 2a
+  method_family: explainable-units
+- id: homology_vote
+  status: accepted
+  label_en: homology vote
+  label_es: voto por homología
+  candidate_names:
+  - homology vote
+  canonical_name: homology vote
+  top_category: method
+  definition_en: >-
+    Rung 2b: a vote over all of a target's hits in the cut's homology table, each GO term scored by the
+    bit score times the identity of the hits that carry it, over those of all the hits; its variants
+    change the rule, the denominator, a cap on the hits and how twins are counted.
+  external_match: 'DeepGOPlus DiamondScore: a bit-score weighted vote over homologs'
+  current_names:
+  - where: PROTEA, accepted names
+    names:
+    - run_homology_transfer
+    - bitscore_vote
+    - bitscore_identity_vote
+  - where: calibration vocabulary
+    names:
+    - homology_vote
+  ladder_order: 40
+  ladder_position: 2b
+  method_family: explainable-units
+- id: nearest_neighbour
+  status: accepted
+  label_en: nearest neighbour
+  label_es: vecino más cercano
+  candidate_names:
+  - nearest neighbour
+  canonical_name: nearest neighbour
+  top_category: method
+  definition_en: >-
+    Rung 3: the GO terms of a target's nearest neighbours in a protein language model's space, among the
+    donors the declared pool admits at the cut, the target itself excluded by accession. Its literal
+    variants reproduce FANTASIA, LAFA's ProtT5 search and the CAFA5 search; the mirror arm adds the
+    signature channel.
+  external_match: 'goPredSim and FANTASIA: GO annotation transfer by embedding similarity'
+  current_names:
+  - where: PROTEA
+    names:
+    - predict_go_terms
+  - where: calibration vocabulary
+    names:
+    - nearest_neighbour
+  ladder_order: 50
+  ladder_position: '3'
+  method_family: embedding-reranker
+- id: neighbourhood_vote
+  status: accepted
+  label_en: neighbourhood vote
+  label_es: voto del vecindario
+  candidate_names:
+  - neighbourhood vote
+  canonical_name: neighbourhood vote
+  top_category: method
+  definition_en: >-
+    Rung 4: the depth of the neighbourhood and the vote over it: how many neighbours are read and how
+    their GO terms are aggregated, the nearest one alone, the fraction of votes, a similarity-weighted
+    vote or a kernel fraction.
+  external_match: 'goPredSim: k nearest neighbours; NetGO and InterLabelGO+: similarity-weighted votes'
+  current_names:
+  - where: PROTEA, accepted names
+    names:
+    - embedding_only
+    - vote_fraction
+    - similarity_vote
+    - kernel_fraction
+  ladder_order: 60
+  ladder_position: '4'
+  method_family: embedding-reranker
+- id: recipe_across_language_models
+  status: accepted
+  label_en: recipe across language models
+  label_es: receta en los modelos de lenguaje
+  candidate_names:
+  - recipe across language models
+  canonical_name: recipe across language models
+  top_category: method
+  definition_en: >-
+    Rung 6b: the recipe selected for Ankh base, read with each of the eight protein language models in
+    turn, with the participation ratio of each model's space beside it. It reports; the ladder's model
+    stays Ankh base.
+  current_names:
+  - where: design
+    names:
+    - the eight models
+  ladder_order: 90
+  ladder_position: 6b
+  method_family: embedding-reranker
+- id: own_annotation_ranker
+  status: accepted
+  label_en: own-annotation ranker
+  label_es: ordenador de anotaciones propias
+  candidate_names:
+  - own-annotation ranker
+  canonical_name: own-annotation ranker
+  top_category: method
+  definition_en: >-
+    Rung 9, the champion: gradient-boosted trees that rank a protein's own annotation candidates from
+    their features, refit on the fitting windows with their rounds and leaves chosen by nested selection
+    in the shared folds.
+  current_names:
+  - where: PROTEA, accepted names
+    names:
+    - fit_own_annotation_ranker
+    - apply_own_annotation_ranker
+    - own_annotation_ranker
+  - where: laboratory
+    names:
+    - ordena_propias.py
+  ladder_order: 120
+  ladder_position: '9'
+  method_family: explainable-units
+- id: segment_encoder
+  status: accepted
+  label_en: segment encoder
+  label_es: codificador de segmentos
+  candidate_names:
+  - segment encoder
+  canonical_name: segment encoder
+  top_category: method
+  definition_en: >-
+    Rung 12b: a label-free encoder of protein segments, trained on the member sequences of the
+    instance's photos, whose vectors are searched as a protein language model's are. Each trained
+    encoder is one embedding configuration, named after the sha256 of its weights.
+  examples:
+  - jepa-segments/<sha256 of the encoder weights>
+  current_names:
+  - where: PROTEA, accepted names
+    names:
+    - own-encoder
+  - where: laboratory
+    names:
+    - SF-JEPA
+    - tramos
+  ladder_order: 170
+  ladder_position: 12b
+  method_family: world-model

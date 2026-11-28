@@ -9,19 +9,19 @@
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix pav: <http://purl.org/pav/> .
 <https://w3id.org/protein-function-prediction-semantic-model.owl.ttl> dcterms:title "Semantic model of protein function prediction" ;
-	pav:version "0.0.0" ;
+	pav:version "0.2.0" ;
 	a owl:Ontology ;
 	rdfs:label "protein_function_prediction_semantic_model" ;
 	skos:definition "The single versioned description of the concepts of protein function prediction, of the components that implement or document them, and of the relations between them. It is named after the problem, not after any tool: PROTEA, the open science platform, is one of its components. Its first ring is concept, component and relation; the model itself is a SKOS concept scheme. Two words are reserved: ontology names only the Gene Ontology, and term names only a GO term." .
 protein_function_prediction:Component a owl:Class ;
 	rdfs:label "Component" ;
-	rdfs:subClassOf _:c14n102 , _:c14n111 , _:c14n13 , _:c14n19 , _:c14n20 , _:c14n24 , _:c14n25 , _:c14n27 , _:c14n39 , _:c14n46 , _:c14n48 , _:c14n62 , _:c14n70 , _:c14n76 , _:c14n80 , _:c14n84 , _:c14n88 , _:c14n93 ;
+	rdfs:subClassOf _:c14n104 , _:c14n113 , _:c14n123 , _:c14n16 , _:c14n22 , _:c14n23 , _:c14n27 , _:c14n28 , _:c14n30 , _:c14n42 , _:c14n52 , _:c14n55 , _:c14n71 , _:c14n79 , _:c14n85 , _:c14n89 , _:c14n95 , _:c14n99 ;
 	skos:definition "A piece of the project (code, data store, document, panel) that implements or documents concepts. Not filled in version 0." ;
 	skos:exactMatch prov:Entity ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:Concept a owl:Class ;
 	rdfs:label "Concept" ;
-	rdfs:subClassOf _:c14n10 , _:c14n101 , _:c14n103 , _:c14n105 , _:c14n108 , _:c14n109 , _:c14n113 , _:c14n115 , _:c14n117 , _:c14n12 , _:c14n14 , _:c14n15 , _:c14n17 , _:c14n22 , _:c14n29 , _:c14n3 , _:c14n31 , _:c14n32 , _:c14n34 , _:c14n35 , _:c14n37 , _:c14n41 , _:c14n50 , _:c14n54 , _:c14n57 , _:c14n59 , _:c14n6 , _:c14n61 , _:c14n64 , _:c14n69 , _:c14n7 , _:c14n81 , _:c14n83 , _:c14n87 , _:c14n90 , _:c14n92 , _:c14n94 , _:c14n96 , _:c14n97 , _:c14n99 ;
+	rdfs:subClassOf _:c14n0 , _:c14n1 , _:c14n10 , _:c14n101 , _:c14n103 , _:c14n105 , _:c14n107 , _:c14n108 , _:c14n110 , _:c14n112 , _:c14n114 , _:c14n116 , _:c14n120 , _:c14n121 , _:c14n125 , _:c14n127 , _:c14n129 , _:c14n13 , _:c14n15 , _:c14n17 , _:c14n18 , _:c14n20 , _:c14n25 , _:c14n32 , _:c14n34 , _:c14n35 , _:c14n37 , _:c14n38 , _:c14n40 , _:c14n44 , _:c14n45 , _:c14n46 , _:c14n48 , _:c14n53 , _:c14n57 , _:c14n58 , _:c14n6 , _:c14n62 , _:c14n65 , _:c14n67 , _:c14n70 , _:c14n73 , _:c14n78 , _:c14n9 , _:c14n90 , _:c14n92 , _:c14n93 , _:c14n94 , _:c14n98 ;
 	skos:definition "A unit of meaning of protein function prediction. Every concept carries the same card: canonical name, English label and definition, a Spanish label for the Spanish user interface, its top category, the names it has today and where, and its external equivalent." ;
 	skos:exactMatch skos:Concept ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
@@ -35,18 +35,18 @@ protein_function_prediction:NameStatus\#candidate a owl:Class ;
 	skos:definition "Imported or proposed; the canonical name is not chosen yet." .
 protein_function_prediction:NameStatus a owl:Class ;
 	rdfs:label "NameStatus" ;
-	owl:unionOf _:c14n104 ;
+	owl:unionOf _:c14n115 ;
 	skos:definition "Where a concept stands in the choice of its canonical name." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> ;
 	linkml:permissible_values protein_function_prediction:NameStatus\#accepted , protein_function_prediction:NameStatus\#candidate .
 protein_function_prediction:NameUse a owl:Class ;
 	rdfs:label "NameUse" ;
-	rdfs:subClassOf _:c14n1 , _:c14n26 , _:c14n28 , _:c14n49 , _:c14n68 ;
+	rdfs:subClassOf _:c14n29 , _:c14n3 , _:c14n31 , _:c14n56 , _:c14n77 ;
 	skos:definition "The names one place of the project gives to a concept today." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:Relation a owl:Class ;
 	rdfs:label "Relation" ;
-	rdfs:subClassOf _:c14n110 , _:c14n112 , _:c14n30 , _:c14n44 , _:c14n55 , _:c14n65 , _:c14n78 , _:c14n8 , _:c14n86 ;
+	rdfs:subClassOf _:c14n11 , _:c14n122 , _:c14n124 , _:c14n33 , _:c14n50 , _:c14n63 , _:c14n74 , _:c14n87 , _:c14n97 ;
 	skos:definition "A named, directed link from one component to another. Not filled in version 0." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:RelationKind\#calls a owl:Class ;
@@ -84,13 +84,13 @@ protein_function_prediction:RelationKind\#replaces a owl:Class ;
 	rdfs:subClassOf protein_function_prediction:RelationKind .
 protein_function_prediction:RelationKind a owl:Class ;
 	rdfs:label "RelationKind" ;
-	owl:unionOf _:c14n79 ;
+	owl:unionOf _:c14n88 ;
 	skos:definition "The relation kinds of the closure map." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> ;
 	linkml:permissible_values protein_function_prediction:RelationKind\#calls , protein_function_prediction:RelationKind\#configures , protein_function_prediction:RelationKind\#deploys , protein_function_prediction:RelationKind\#documents , protein_function_prediction:RelationKind\#duplicates , protein_function_prediction:RelationKind\#evaluates , protein_function_prediction:RelationKind\#explains , protein_function_prediction:RelationKind\#imports , protein_function_prediction:RelationKind\#launches , protein_function_prediction:RelationKind\#produces_data_for , protein_function_prediction:RelationKind\#replaces .
 protein_function_prediction:SemanticModel a owl:Class ;
 	rdfs:label "SemanticModel" ;
-	rdfs:subClassOf _:c14n0 , _:c14n107 , _:c14n11 , _:c14n18 , _:c14n21 , _:c14n33 , _:c14n36 , _:c14n38 , _:c14n4 , _:c14n40 , _:c14n43 , _:c14n58 , _:c14n67 , _:c14n71 , _:c14n72 , _:c14n73 , _:c14n75 , _:c14n91 ;
+	rdfs:subClassOf _:c14n102 , _:c14n119 , _:c14n14 , _:c14n2 , _:c14n21 , _:c14n24 , _:c14n36 , _:c14n39 , _:c14n41 , _:c14n43 , _:c14n49 , _:c14n66 , _:c14n7 , _:c14n76 , _:c14n80 , _:c14n81 , _:c14n82 , _:c14n84 ;
 	skos:definition "The model itself: one versioned description from which the glossary, the component map, interface texts and contract schemas are generated." ;
 	skos:exactMatch skos:ConceptScheme ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
@@ -114,7 +114,7 @@ protein_function_prediction:TopCategory\#method_family a owl:Class ;
 	rdfs:subClassOf protein_function_prediction:TopCategory .
 protein_function_prediction:TopCategory a owl:Class ;
 	rdfs:label "TopCategory" ;
-	owl:unionOf _:c14n74 ;
+	owl:unionOf _:c14n83 ;
 	skos:definition "The top categories of version 0, as the closure map gave them." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> ;
 	linkml:permissible_values protein_function_prediction:TopCategory\#activity , protein_function_prediction:TopCategory\#component , protein_function_prediction:TopCategory\#data , protein_function_prediction:TopCategory\#document , protein_function_prediction:TopCategory\#method , protein_function_prediction:TopCategory\#method_family .
@@ -171,7 +171,7 @@ protein_function_prediction:external_match a owl:DatatypeProperty ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:id a owl:DatatypeProperty ;
 	rdfs:label "id" ;
-	rdfs:range _:c14n23 ;
+	rdfs:range _:c14n26 ;
 	skos:definition "Stable identifier in snake_case English. In version 0 it is provisional and follows the first candidate name." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:implements a owl:ObjectProperty ;
@@ -188,6 +188,20 @@ protein_function_prediction:label_es a owl:DatatypeProperty ;
 	rdfs:label "label_es" ;
 	skos:definition "Label in Spanish, for the Spanish user interface; the only field of a concept that is not in English." ;
 	skos:exactMatch skos:prefLabel ;
+	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
+protein_function_prediction:ladder_order a owl:DatatypeProperty ;
+	rdfs:label "ladder_order" ;
+	rdfs:range _:c14n5 ;
+	skos:definition "Where a rung of the literature ladder sits in it: an integer, spaced by ten so that a later rung is inserted without renumbering the others. Only a rung card carries it, and the ladder is the cards that do, sorted by it." ;
+	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
+protein_function_prediction:ladder_position a owl:DatatypeProperty ;
+	rdfs:label "ladder_position" ;
+	rdfs:range _:c14n117 ;
+	skos:definition "The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order." ;
+	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
+protein_function_prediction:method_family a owl:DatatypeProperty ;
+	rdfs:label "method_family" ;
+	skos:definition "The family of a rung's method, one of the values of the method family concept. The family is part of a method's identity, so a rung whose writers register no method of their own (the reading of an arm) carries none." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:names a owl:DatatypeProperty ;
 	rdfs:label "names" ;
@@ -245,7 +259,7 @@ protein_function_prediction:values a owl:DatatypeProperty ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:version a owl:DatatypeProperty ;
 	rdfs:label "version" ;
-	rdfs:range _:c14n45 ;
+	rdfs:range _:c14n51 ;
 	skos:definition "The semantic version of the model; 0.x while names are candidates." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 protein_function_prediction:where a owl:DatatypeProperty ;
@@ -253,363 +267,426 @@ protein_function_prediction:where a owl:DatatypeProperty ;
 	skos:definition "The place, such as the ORM, the user interface, the panel or the laboratory code." ;
 	skos:inScheme <https://w3id.org/protein-function-prediction-semantic-model> .
 _:c14n0 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:description .
+	owl:allValuesFrom _:c14n68 ;
+	owl:onProperty protein_function_prediction:ladder_order .
 _:c14n1 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:where .
+	owl:allValuesFrom _:c14n146 ;
+	owl:onProperty protein_function_prediction:ladder_position .
 _:c14n10 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:definition_en .
-_:c14n100 rdf:first protein_function_prediction:RelationKind\#replaces ;
-	rdf:rest rdf:nil .
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:top_category .
+_:c14n100 rdfs:subClassOf _:c14n118 ;
+	owl:intersectionOf _:c14n54 .
 _:c14n101 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n102 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:documents_concepts .
-_:c14n103 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:definition_en .
-_:c14n104 rdf:first protein_function_prediction:NameStatus\#candidate ;
-	rdf:rest _:c14n85 .
-_:c14n105 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:candidate_names .
-_:c14n106 a owl:Restriction ;
-	owl:onProperty protein_function_prediction:canonical_name ;
-	owl:someValuesFrom xsd:string .
-_:c14n107 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:description .
-_:c14n108 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:top_category .
-_:c14n109 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:external_match .
-_:c14n11 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n110 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:RelationKind ;
-	owl:onProperty protein_function_prediction:predicate .
-_:c14n111 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:description .
-_:c14n112 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:Component ;
-	owl:onProperty protein_function_prediction:object .
-_:c14n113 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:values .
-_:c14n114 rdf:first protein_function_prediction:RelationKind\#documents ;
-	rdf:rest _:c14n9 .
-_:c14n115 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_es .
-_:c14n116 rdf:first protein_function_prediction:TopCategory\#method ;
-	rdf:rest _:c14n60 .
-_:c14n117 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:status .
-_:c14n118 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n119 .
-_:c14n119 rdf:first _:c14n120 ;
-	rdf:rest rdf:nil .
-_:c14n12 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:canonical_name .
-_:c14n120 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
-_:c14n121 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n122 .
-_:c14n122 rdf:first _:c14n123 ;
-	rdf:rest rdf:nil .
-_:c14n123 xsd:pattern "^[0-9]+\\.[0-9]+\\.[0-9]+$" .
-_:c14n124 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n125 .
-_:c14n125 rdf:first _:c14n126 ;
-	rdf:rest rdf:nil .
-_:c14n126 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
-_:c14n127 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n128 .
-_:c14n128 rdf:first _:c14n129 ;
-	rdf:rest rdf:nil .
-_:c14n129 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
-_:c14n13 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:description .
-_:c14n130 xsd:pattern "^[0-9]+\\.[0-9]+\\.[0-9]+$" .
-_:c14n131 rdf:first _:c14n130 ;
-	rdf:rest rdf:nil .
-_:c14n132 rdf:first _:c14n133 ;
-	rdf:rest rdf:nil .
-_:c14n133 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
-_:c14n14 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:current_names .
-_:c14n15 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:external_match .
-_:c14n16 rdf:first protein_function_prediction:RelationKind\#explains ;
-	rdf:rest _:c14n53 .
-_:c14n17 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:naming_conflict .
-_:c14n18 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n19 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_en .
-_:c14n2 rdf:first protein_function_prediction:TopCategory\#activity ;
-	rdf:rest _:c14n63 .
-_:c14n20 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n21 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:components .
-_:c14n22 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:examples .
-_:c14n23 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n132 .
-_:c14n24 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_es .
-_:c14n25 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:label_es .
-_:c14n26 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:names .
-_:c14n27 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:paths .
-_:c14n28 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:names .
-_:c14n29 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:label_es .
-_:c14n3 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_es .
-_:c14n30 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:predicate .
-_:c14n31 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:NameUse ;
-	owl:onProperty protein_function_prediction:current_names .
-_:c14n32 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_en .
-_:c14n33 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:title .
-_:c14n34 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n35 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:deprecated_names .
-_:c14n36 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:version .
-_:c14n37 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:review_note .
-_:c14n38 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:version .
-_:c14n39 a owl:Restriction ;
-	owl:allValuesFrom _:c14n124 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n4 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:Concept ;
-	owl:onProperty protein_function_prediction:concepts .
-_:c14n40 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:description .
-_:c14n41 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:naming_conflict .
-_:c14n42 rdf:first protein_function_prediction:RelationKind\#launches ;
-	rdf:rest _:c14n5 .
-_:c14n43 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:Relation ;
-	owl:onProperty protein_function_prediction:relations .
-_:c14n44 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:object .
-_:c14n45 a rdfs:Datatype ;
-	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n131 .
-_:c14n46 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_en .
-_:c14n47 rdf:first _:c14n56 ;
-	rdf:rest _:c14n77 .
-_:c14n48 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n49 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:where .
-_:c14n5 rdf:first protein_function_prediction:RelationKind\#configures ;
-	rdf:rest _:c14n66 .
-_:c14n50 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:candidate_names .
-_:c14n51 rdf:first protein_function_prediction:RelationKind\#evaluates ;
-	rdf:rest _:c14n16 .
-_:c14n52 rdf:first "accepted" ;
-	rdf:rest rdf:nil .
-_:c14n53 rdf:first protein_function_prediction:RelationKind\#imports ;
-	rdf:rest _:c14n98 .
-_:c14n54 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:review_note .
-_:c14n55 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:subject .
-_:c14n56 a owl:Restriction ;
-	owl:onProperty protein_function_prediction:status ;
-	owl:someValuesFrom _:c14n95 .
-_:c14n57 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:canonical_name .
-_:c14n58 a owl:Restriction ;
-	owl:allValuesFrom _:c14n121 ;
-	owl:onProperty protein_function_prediction:version .
-_:c14n59 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_en .
-_:c14n6 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:status .
-_:c14n60 rdf:first protein_function_prediction:TopCategory\#method_family ;
-	rdf:rest _:c14n2 .
-_:c14n61 a owl:Restriction ;
-	owl:allValuesFrom _:c14n127 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n62 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:description .
-_:c14n63 rdf:first protein_function_prediction:TopCategory\#document ;
-	rdf:rest rdf:nil .
-_:c14n64 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:naming_conflict .
-_:c14n65 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:Component ;
-	owl:onProperty protein_function_prediction:subject .
-_:c14n66 rdf:first protein_function_prediction:RelationKind\#deploys ;
-	rdf:rest _:c14n114 .
-_:c14n67 a owl:Restriction ;
-	owl:allValuesFrom _:c14n118 ;
-	owl:onProperty protein_function_prediction:id .
-_:c14n68 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:where .
-_:c14n69 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:definition_en .
-_:c14n7 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:top_category .
-_:c14n70 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:label_es .
-_:c14n71 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:relations .
-_:c14n72 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:title .
-_:c14n73 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:concepts .
-_:c14n74 rdf:first protein_function_prediction:TopCategory\#data ;
-	rdf:rest _:c14n82 .
-_:c14n75 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:title .
-_:c14n76 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:Concept ;
-	owl:onProperty protein_function_prediction:documents_concepts .
-_:c14n77 rdf:first protein_function_prediction:Concept ;
-	rdf:rest rdf:nil .
-_:c14n78 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:predicate .
-_:c14n79 rdf:first protein_function_prediction:RelationKind\#produces_data_for ;
-	rdf:rest _:c14n51 .
-_:c14n8 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty protein_function_prediction:subject .
-_:c14n80 a owl:Restriction ;
-	owl:allValuesFrom protein_function_prediction:Concept ;
-	owl:onProperty protein_function_prediction:implements .
-_:c14n81 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:external_match .
-_:c14n82 rdf:first protein_function_prediction:TopCategory\#component ;
-	rdf:rest _:c14n116 .
-_:c14n83 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:review_note .
-_:c14n84 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:label_en .
-_:c14n85 rdf:first protein_function_prediction:NameStatus\#accepted ;
-	rdf:rest rdf:nil .
-_:c14n86 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty protein_function_prediction:object .
-_:c14n87 a owl:Restriction ;
-	owl:allValuesFrom xsd:string ;
-	owl:onProperty protein_function_prediction:label_en .
-_:c14n88 a owl:Restriction ;
-	owl:minCardinality 0 ;
-	owl:onProperty protein_function_prediction:paths .
-_:c14n89 rdfs:subClassOf _:c14n106 ;
-	owl:intersectionOf _:c14n47 .
-_:c14n9 rdf:first protein_function_prediction:RelationKind\#duplicates ;
-	rdf:rest _:c14n100 .
-_:c14n90 a owl:Restriction ;
 	owl:allValuesFrom protein_function_prediction:TopCategory ;
 	owl:onProperty protein_function_prediction:top_category .
-_:c14n91 a owl:Restriction ;
+_:c14n102 a owl:Restriction ;
 	owl:allValuesFrom protein_function_prediction:Component ;
 	owl:onProperty protein_function_prediction:components .
-_:c14n92 a owl:Restriction ;
+_:c14n103 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty protein_function_prediction:examples .
-_:c14n93 a owl:Restriction ;
+_:c14n104 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty protein_function_prediction:implements .
-_:c14n94 a owl:Restriction ;
+_:c14n105 a owl:Restriction ;
 	owl:allValuesFrom protein_function_prediction:NameStatus ;
 	owl:onProperty protein_function_prediction:status .
-_:c14n95 a rdfs:Datatype ;
-	owl:oneOf _:c14n52 .
-_:c14n96 a owl:Restriction ;
+_:c14n106 a rdfs:Datatype ;
+	owl:oneOf _:c14n60 .
+_:c14n107 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty protein_function_prediction:canonical_name .
-_:c14n97 a owl:Restriction ;
+_:c14n108 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty protein_function_prediction:values .
-_:c14n98 rdf:first protein_function_prediction:RelationKind\#calls ;
-	rdf:rest _:c14n42 .
-_:c14n99 a owl:Restriction ;
+_:c14n109 rdf:first protein_function_prediction:RelationKind\#calls ;
+	rdf:rest _:c14n47 .
+_:c14n11 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:subject .
+_:c14n110 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty protein_function_prediction:deprecated_names .
+_:c14n111 rdf:first protein_function_prediction:RelationKind\#replaces ;
+	rdf:rest rdf:nil .
+_:c14n112 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n113 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:documents_concepts .
+_:c14n114 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:definition_en .
+_:c14n115 rdf:first protein_function_prediction:NameStatus\#candidate ;
+	rdf:rest _:c14n96 .
+_:c14n116 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:candidate_names .
+_:c14n117 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n156 .
+_:c14n118 a owl:Restriction ;
+	owl:onProperty protein_function_prediction:canonical_name ;
+	owl:someValuesFrom xsd:string .
+_:c14n119 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:description .
+_:c14n12 rdf:first protein_function_prediction:RelationKind\#duplicates ;
+	rdf:rest _:c14n111 .
+_:c14n120 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:top_category .
+_:c14n121 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:external_match .
+_:c14n122 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:RelationKind ;
+	owl:onProperty protein_function_prediction:predicate .
+_:c14n123 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:description .
+_:c14n124 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:Component ;
+	owl:onProperty protein_function_prediction:object .
+_:c14n125 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:values .
+_:c14n126 rdf:first protein_function_prediction:RelationKind\#documents ;
+	rdf:rest _:c14n12 .
+_:c14n127 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_es .
+_:c14n128 rdf:first protein_function_prediction:TopCategory\#method ;
+	rdf:rest _:c14n69 .
+_:c14n129 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:status .
+_:c14n13 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:definition_en .
+_:c14n130 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n133 .
+_:c14n131 rdf:first _:c14n130 ;
+	rdf:rest rdf:nil .
+_:c14n132 rdf:first xsd:integer ;
+	rdf:rest _:c14n131 .
+_:c14n133 rdf:first _:c14n134 ;
+	rdf:rest rdf:nil .
+_:c14n134 xsd:minInclusive 0 .
+_:c14n135 a rdfs:Datatype ;
+	owl:onDatatype xsd:integer ;
+	owl:withRestrictions _:c14n138 .
+_:c14n136 rdf:first _:c14n135 ;
+	rdf:rest rdf:nil .
+_:c14n137 rdf:first xsd:integer ;
+	rdf:rest _:c14n136 .
+_:c14n138 rdf:first _:c14n139 ;
+	rdf:rest rdf:nil .
+_:c14n139 xsd:minInclusive 0 .
+_:c14n14 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n140 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n141 .
+_:c14n141 rdf:first _:c14n142 ;
+	rdf:rest rdf:nil .
+_:c14n142 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
+_:c14n143 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n144 .
+_:c14n144 rdf:first _:c14n145 ;
+	rdf:rest rdf:nil .
+_:c14n145 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
+_:c14n146 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n147 .
+_:c14n147 rdf:first _:c14n148 ;
+	rdf:rest rdf:nil .
+_:c14n148 xsd:pattern "^[0-9]+[a-z]?$" .
+_:c14n149 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n150 .
+_:c14n15 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:canonical_name .
+_:c14n150 rdf:first _:c14n151 ;
+	rdf:rest rdf:nil .
+_:c14n151 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
+_:c14n152 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n153 .
+_:c14n153 rdf:first _:c14n154 ;
+	rdf:rest rdf:nil .
+_:c14n154 xsd:pattern "^[0-9]+\\.[0-9]+\\.[0-9]+$" .
+_:c14n155 xsd:pattern "^[0-9]+[a-z]?$" .
+_:c14n156 rdf:first _:c14n155 ;
+	rdf:rest rdf:nil .
+_:c14n157 xsd:pattern "^[0-9]+\\.[0-9]+\\.[0-9]+$" .
+_:c14n158 rdf:first _:c14n157 ;
+	rdf:rest rdf:nil .
+_:c14n159 rdf:first _:c14n160 ;
+	rdf:rest rdf:nil .
+_:c14n16 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:description .
+_:c14n160 xsd:pattern "^[a-z][a-z0-9]*(_[a-z0-9]+)*$" .
+_:c14n17 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:current_names .
+_:c14n18 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:external_match .
+_:c14n19 rdf:first protein_function_prediction:RelationKind\#explains ;
+	rdf:rest _:c14n61 .
+_:c14n2 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:description .
+_:c14n20 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:naming_conflict .
+_:c14n21 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n22 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_en .
+_:c14n23 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n24 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:components .
+_:c14n25 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:examples .
+_:c14n26 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n159 .
+_:c14n27 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_es .
+_:c14n28 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:label_es .
+_:c14n29 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:names .
+_:c14n3 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:where .
+_:c14n30 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:paths .
+_:c14n31 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:names .
+_:c14n32 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:label_es .
+_:c14n33 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:predicate .
+_:c14n34 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:NameUse ;
+	owl:onProperty protein_function_prediction:current_names .
+_:c14n35 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_en .
+_:c14n36 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:title .
+_:c14n37 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n38 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:deprecated_names .
+_:c14n39 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:version .
+_:c14n4 rdf:first protein_function_prediction:TopCategory\#activity ;
+	rdf:rest _:c14n72 .
+_:c14n40 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:review_note .
+_:c14n41 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:version .
+_:c14n42 a owl:Restriction ;
+	owl:allValuesFrom _:c14n143 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n43 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:description .
+_:c14n44 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:ladder_position .
+_:c14n45 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:method_family .
+_:c14n46 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:naming_conflict .
+_:c14n47 rdf:first protein_function_prediction:RelationKind\#launches ;
+	rdf:rest _:c14n8 .
+_:c14n48 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:method_family .
+_:c14n49 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:Relation ;
+	owl:onProperty protein_function_prediction:relations .
+_:c14n5 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n132 .
+_:c14n50 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:object .
+_:c14n51 a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+	owl:withRestrictions _:c14n158 .
+_:c14n52 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_en .
+_:c14n53 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:ladder_position .
+_:c14n54 rdf:first _:c14n64 ;
+	rdf:rest _:c14n86 .
+_:c14n55 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n56 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:where .
+_:c14n57 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:candidate_names .
+_:c14n58 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:ladder_order .
+_:c14n59 rdf:first protein_function_prediction:RelationKind\#evaluates ;
+	rdf:rest _:c14n19 .
+_:c14n6 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_es .
+_:c14n60 rdf:first "accepted" ;
+	rdf:rest rdf:nil .
+_:c14n61 rdf:first protein_function_prediction:RelationKind\#imports ;
+	rdf:rest _:c14n109 .
+_:c14n62 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:review_note .
+_:c14n63 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:subject .
+_:c14n64 a owl:Restriction ;
+	owl:onProperty protein_function_prediction:status ;
+	owl:someValuesFrom _:c14n106 .
+_:c14n65 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:canonical_name .
+_:c14n66 a owl:Restriction ;
+	owl:allValuesFrom _:c14n152 ;
+	owl:onProperty protein_function_prediction:version .
+_:c14n67 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_en .
+_:c14n68 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n137 .
+_:c14n69 rdf:first protein_function_prediction:TopCategory\#method_family ;
+	rdf:rest _:c14n4 .
+_:c14n7 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:Concept ;
+	owl:onProperty protein_function_prediction:concepts .
+_:c14n70 a owl:Restriction ;
+	owl:allValuesFrom _:c14n140 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n71 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:description .
+_:c14n72 rdf:first protein_function_prediction:TopCategory\#document ;
+	rdf:rest rdf:nil .
+_:c14n73 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:naming_conflict .
+_:c14n74 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:Component ;
+	owl:onProperty protein_function_prediction:subject .
+_:c14n75 rdf:first protein_function_prediction:RelationKind\#deploys ;
+	rdf:rest _:c14n126 .
+_:c14n76 a owl:Restriction ;
+	owl:allValuesFrom _:c14n149 ;
+	owl:onProperty protein_function_prediction:id .
+_:c14n77 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:where .
+_:c14n78 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:definition_en .
+_:c14n79 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:label_es .
+_:c14n8 rdf:first protein_function_prediction:RelationKind\#configures ;
+	rdf:rest _:c14n75 .
+_:c14n80 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:relations .
+_:c14n81 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:title .
+_:c14n82 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:concepts .
+_:c14n83 rdf:first protein_function_prediction:TopCategory\#data ;
+	rdf:rest _:c14n91 .
+_:c14n84 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:title .
+_:c14n85 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:Concept ;
+	owl:onProperty protein_function_prediction:documents_concepts .
+_:c14n86 rdf:first protein_function_prediction:Concept ;
+	rdf:rest rdf:nil .
+_:c14n87 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:predicate .
+_:c14n88 rdf:first protein_function_prediction:RelationKind\#produces_data_for ;
+	rdf:rest _:c14n59 .
+_:c14n89 a owl:Restriction ;
+	owl:allValuesFrom protein_function_prediction:Concept ;
+	owl:onProperty protein_function_prediction:implements .
+_:c14n9 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty protein_function_prediction:status .
+_:c14n90 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:external_match .
+_:c14n91 rdf:first protein_function_prediction:TopCategory\#component ;
+	rdf:rest _:c14n128 .
+_:c14n92 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:ladder_order .
+_:c14n93 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:review_note .
+_:c14n94 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:method_family .
+_:c14n95 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:label_en .
+_:c14n96 rdf:first protein_function_prediction:NameStatus\#accepted ;
+	rdf:rest rdf:nil .
+_:c14n97 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty protein_function_prediction:object .
+_:c14n98 a owl:Restriction ;
+	owl:allValuesFrom xsd:string ;
+	owl:onProperty protein_function_prediction:label_en .
+_:c14n99 a owl:Restriction ;
+	owl:minCardinality 0 ;
+	owl:onProperty protein_function_prediction:paths .
 

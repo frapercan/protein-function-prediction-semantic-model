@@ -1,6 +1,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix protein_function_prediction: <https://w3id.org/protein-function-prediction-semantic-model/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 protein_function_prediction:adoption_rule a skos:Concept ;
     skos:definition "An arm replaces its reference in the recipe when some cell is resolved in its favour by the simultaneous intervals with an estimated gain of at least 0.01, and no cell is resolved against it (the author, 2026-11-27). The family is always the nine cells; a verdict never deletes an arm."@en ;
@@ -29,12 +30,12 @@ protein_function_prediction:arm a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:aspect a skos:Concept ;
-    skos:definition "A branch of GO: biological process, molecular function or cellular component, with the codes P, F and C."@en ;
+    skos:definition "A branch of GO: biological process, molecular function or cellular component, the Gene Ontology's own namespace names."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "aspect"@en,
         "aspecto"@es ;
     protein_function_prediction:external_match "Gene Ontology: aspect" ;
-    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:bank a skos:Concept ;
@@ -61,6 +62,9 @@ protein_function_prediction:calibrated_maximum a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "calibrated maximum"@en,
         "máximo calibrado"@es ;
+    protein_function_prediction:ladder_order 110 ;
+    protein_function_prediction:ladder_position "8" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -93,7 +97,10 @@ protein_function_prediction:count_map a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "count map"@en,
         "mapa de conteos"@es ;
-    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:ladder_order 160 ;
+    protein_function_prediction:ladder_position "12a" ;
+    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
 protein_function_prediction:coverage_guarantee a skos:Concept ;
@@ -226,6 +233,18 @@ protein_function_prediction:hierarchy_restoration a skos:Concept ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
+protein_function_prediction:homology_vote a skos:Concept ;
+    skos:definition "Rung 2b: a vote over all of a target's hits in the cut's homology table, each GO term scored by the bit score times the identity of the hits that carry it, over those of all the hits; its variants change the rule, the denominator, a cap on the hits and how twins are counted."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "homology vote"@en,
+        "voto por homología"@es ;
+    protein_function_prediction:external_match "DeepGOPlus DiamondScore: a bit-score weighted vote over homologs" ;
+    protein_function_prediction:ladder_order 40 ;
+    protein_function_prediction:ladder_position "2b" ;
+    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
 protein_function_prediction:information_accretion_table a skos:Concept ;
     skos:definition "A weight per GO term, computed per corpus and evidence regime and identified by its sha256 (ADR-D46)."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
@@ -236,12 +255,12 @@ protein_function_prediction:information_accretion_table a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:knowledge_category a skos:Concept ;
-    skos:definition "NK: no experimental annotation at t0 in any aspect; LK: only in other aspects; PK: already in the aspect being evaluated."@en ;
+    skos:definition "The category of a target in an aspect: no knowledge when it has no experimental annotation at t0 in any aspect, limited knowledge when it has one only in other aspects, partial knowledge when it already has one in the aspect being evaluated."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "knowledge category"@en,
         "categoría de conocimiento"@es ;
     protein_function_prediction:external_match "CAFA: no-, limited- y partial-knowledge" ;
-    protein_function_prediction:status "candidate" ;
+    protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:knowledge_cut a skos:Concept ;
@@ -326,6 +345,30 @@ protein_function_prediction:mirror_channel a skos:Concept ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "data" .
 
+protein_function_prediction:nearest_neighbour a skos:Concept ;
+    skos:definition "Rung 3: the GO terms of a target's nearest neighbours in a protein language model's space, among the donors the declared pool admits at the cut, the target itself excluded by accession. Its literal variants reproduce FANTASIA, LAFA's ProtT5 search and the CAFA5 search; the mirror arm adds the signature channel."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "nearest neighbour"@en,
+        "vecino más cercano"@es ;
+    protein_function_prediction:external_match "goPredSim and FANTASIA: GO annotation transfer by embedding similarity" ;
+    protein_function_prediction:ladder_order 50 ;
+    protein_function_prediction:ladder_position "3" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
+protein_function_prediction:neighbourhood_vote a skos:Concept ;
+    skos:definition "Rung 4: the depth of the neighbourhood and the vote over it: how many neighbours are read and how their GO terms are aggregated, the nearest one alone, the fraction of votes, a similarity-weighted vote or a kernel fraction."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "neighbourhood vote"@en,
+        "voto del vecindario"@es ;
+    protein_function_prediction:external_match "goPredSim: k nearest neighbours; NetGO and InterLabelGO+: similarity-weighted votes" ;
+    protein_function_prediction:ladder_order 60 ;
+    protein_function_prediction:ladder_position "4" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
 protein_function_prediction:nested_selection a skos:Concept ;
     skos:definition "Every choice a fit makes from labels (merges, rounds, leaves, penalties, epochs) is made without the labels of the fold it scores: for each outer fold, the choice comes from an inner fold of the others, and the full model's choice from the pooled inner curves."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
@@ -362,6 +405,29 @@ protein_function_prediction:out_of_fold_artifact a skos:Concept ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "data" .
 
+protein_function_prediction:own_annotation_ranker a skos:Concept ;
+    skos:definition "Rung 9, the champion: gradient-boosted trees that rank a protein's own annotation candidates from their features, refit on the fitting windows with their rounds and leaves chosen by nested selection in the shared folds."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "own-annotation ranker"@en,
+        "ordenador de anotaciones propias"@es ;
+    protein_function_prediction:ladder_order 120 ;
+    protein_function_prediction:ladder_position "9" ;
+    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
+protein_function_prediction:own_annotations a skos:Concept ;
+    skos:definition "Rung 1: a protein's own annotations at t0 that are not experimental (curated, phylogenetic and electronic evidence), given to it as predictions: the floor every transfer has to clear. The literal variant reproduces democafa's non-experimental baseline; the recipe variant reads the recipe channels."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "own annotations"@en,
+        "anotaciones propias"@es ;
+    protein_function_prediction:external_match "democafa goa_nonexp baseline" ;
+    protein_function_prediction:ladder_order 20 ;
+    protein_function_prediction:ladder_position "1" ;
+    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
 protein_function_prediction:prediction_explanation a skos:Concept ;
     skos:definition "Why a GO term was predicted for a protein, with a type declared per family and checkable against stored data."@en ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
@@ -385,6 +451,8 @@ protein_function_prediction:reading_of_an_arm a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "reading of an arm"@en,
         "lectura de una configuración evaluada"@es ;
+    protein_function_prediction:ladder_order 70 ;
+    protein_function_prediction:ladder_position "5" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -393,6 +461,17 @@ protein_function_prediction:recipe a skos:Concept ;
     skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
     skos:prefLabel "recipe"@en,
         "receta"@es ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
+protein_function_prediction:recipe_across_language_models a skos:Concept ;
+    skos:definition "Rung 6b: the recipe selected for Ankh base, read with each of the eight protein language models in turn, with the participation ratio of each model's space beside it. It reports; the ladder's model stays Ankh base."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "recipe across language models"@en,
+        "receta en los modelos de lenguaje"@es ;
+    protein_function_prediction:ladder_order 90 ;
+    protein_function_prediction:ladder_position "6b" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -410,6 +489,9 @@ protein_function_prediction:regime_calibration a skos:Concept ;
     skos:prefLabel "regime calibration"@en,
         "calibración por régimen"@es ;
     protein_function_prediction:external_match "GOtcha 2004 and COFACTOR 2019: calibration of a score by its regime" ;
+    protein_function_prediction:ladder_order 100 ;
+    protein_function_prediction:ladder_position "7" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -419,6 +501,9 @@ protein_function_prediction:reranker_over_sources a skos:Concept ;
     skos:prefLabel "reranker over sources"@en,
         "reordenador sobre las fuentes"@es ;
     protein_function_prediction:external_match "GOLabeler and NetGO: learning to rank over the scores of components" ;
+    protein_function_prediction:ladder_order 140 ;
+    protein_function_prediction:ladder_position "11a" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -436,6 +521,21 @@ protein_function_prediction:search_space_transform a skos:Concept ;
     skos:prefLabel "search-space transform"@en,
         "transformación del espacio de búsqueda"@es ;
     protein_function_prediction:external_match "Mu and Viswanath 2018 (all-but-the-top); Su et al. (whitening); Bouras and Edwards 2026 (preprint)" ;
+    protein_function_prediction:ladder_order 80 ;
+    protein_function_prediction:ladder_position "6" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
+protein_function_prediction:segment_encoder a skos:Concept ;
+    skos:definition "Rung 12b: a label-free encoder of protein segments, trained on the member sequences of the instance's photos, whose vectors are searched as a protein language model's are. Each trained encoder is one embedding configuration, named after the sha256 of its weights."@en ;
+    skos:example "jepa-segments/<sha256 of the encoder weights>" ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "segment encoder"@en,
+        "codificador de segmentos"@es ;
+    protein_function_prediction:ladder_order 170 ;
+    protein_function_prediction:ladder_position "12b" ;
+    protein_function_prediction:method_family "world-model" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -533,6 +633,9 @@ protein_function_prediction:supervised_head a skos:Concept ;
     skos:prefLabel "supervised head"@en,
         "cabeza supervisada"@es ;
     protein_function_prediction:external_match "NetGO 3.0 LR-ESM and GOLabeler: a logistic regression per GO term" ;
+    protein_function_prediction:ladder_order 130 ;
+    protein_function_prediction:ladder_position "10" ;
+    protein_function_prediction:method_family "embedding-reranker" ;
     protein_function_prediction:status "accepted" ;
     protein_function_prediction:top_category "method" .
 
@@ -552,6 +655,30 @@ protein_function_prediction:target_population a skos:Concept ;
         "población objetivo"@es ;
     protein_function_prediction:status "candidate" ;
     protein_function_prediction:top_category "data" .
+
+protein_function_prediction:term_frequency a skos:Concept ;
+    skos:definition "Rung 0: each GO term scored by how often it annotates the window's population at t0, per aspect, the same for every target. The literal variant is LAFA's Naive (the direct experimental rows of the reviewed proteins, not propagated, the 500 most frequent GO terms of each aspect); the recipe variant counts the propagated annotations."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "GO term frequency"@en,
+        "frecuencia de términos GO"@es ;
+    protein_function_prediction:external_match "CAFA Naive baseline; DeepGOPlus N_f / N_total; LAFA naive.py" ;
+    protein_function_prediction:ladder_order 10 ;
+    protein_function_prediction:ladder_position "0" ;
+    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
+
+protein_function_prediction:top_hit_identity a skos:Concept ;
+    skos:definition "Rung 2a: the GO terms of a target's best hit in the cut's homology table, each scored by the hit's sequence identity: the CAFA BLAST baseline. Its literal variant reads the CAFA5 donors."@en ;
+    skos:inScheme protein_function_prediction:protein_function_prediction_semantic_model ;
+    skos:prefLabel "top-hit identity"@en,
+        "identidad del mejor acierto"@es ;
+    protein_function_prediction:external_match "CAFA BLAST baseline" ;
+    protein_function_prediction:ladder_order 30 ;
+    protein_function_prediction:ladder_position "2a" ;
+    protein_function_prediction:method_family "explainable-units" ;
+    protein_function_prediction:status "accepted" ;
+    protein_function_prediction:top_category "method" .
 
 protein_function_prediction:transport_diagnostic a skos:Concept ;
     skos:definition "A threshold declared on raw scores on the fitting windows and read on another window: it shows how a raw scale travels from window to window, and decides nothing."@en ;
@@ -615,7 +742,7 @@ protein_function_prediction:window_truth a skos:Concept ;
     protein_function_prediction:top_category "data" .
 
 protein_function_prediction:protein_function_prediction_semantic_model a skos:ConceptScheme ;
-    dcterms:hasVersion "0.1.0" ;
+    dcterms:hasVersion "0.2.0" ;
     dcterms:title "Semantic model of protein function prediction"@en ;
     skos:hasTopConcept protein_function_prediction:adoption_rule,
         protein_function_prediction:annotation_set,
@@ -643,6 +770,7 @@ protein_function_prediction:protein_function_prediction_semantic_model a skos:Co
         protein_function_prediction:frame,
         protein_function_prediction:go_term,
         protein_function_prediction:hierarchy_restoration,
+        protein_function_prediction:homology_vote,
         protein_function_prediction:information_accretion_table,
         protein_function_prediction:knowledge_category,
         protein_function_prediction:knowledge_cut,
@@ -654,19 +782,25 @@ protein_function_prediction:protein_function_prediction_semantic_model a skos:Co
         protein_function_prediction:method_family,
         protein_function_prediction:mirror_arm,
         protein_function_prediction:mirror_channel,
+        protein_function_prediction:nearest_neighbour,
+        protein_function_prediction:neighbourhood_vote,
         protein_function_prediction:nested_selection,
         protein_function_prediction:ontology_snapshot,
         protein_function_prediction:operating_point_reading,
         protein_function_prediction:out_of_fold_artifact,
+        protein_function_prediction:own_annotation_ranker,
+        protein_function_prediction:own_annotations,
         protein_function_prediction:prediction_explanation,
         protein_function_prediction:protein_group,
         protein_function_prediction:reading_of_an_arm,
         protein_function_prediction:recipe,
+        protein_function_prediction:recipe_across_language_models,
         protein_function_prediction:recipe_channels,
         protein_function_prediction:regime_calibration,
         protein_function_prediction:reranker_over_sources,
         protein_function_prediction:rung,
         protein_function_prediction:search_space_transform,
+        protein_function_prediction:segment_encoder,
         protein_function_prediction:segment_family,
         protein_function_prediction:segmental_lexicon,
         protein_function_prediction:shared_fold_assignment,
@@ -679,6 +813,8 @@ protein_function_prediction:protein_function_prediction_semantic_model a skos:Co
         protein_function_prediction:supervised_head,
         protein_function_prediction:t0_category,
         protein_function_prediction:target_population,
+        protein_function_prediction:term_frequency,
+        protein_function_prediction:top_hit_identity,
         protein_function_prediction:transport_diagnostic,
         protein_function_prediction:truth_evidence_codes,
         protein_function_prediction:universe_of_a_cut,

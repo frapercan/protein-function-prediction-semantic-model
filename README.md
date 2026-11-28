@@ -11,7 +11,7 @@ everywhere.
 
 ## Status
 
-Version 0.1, under review.
+Version 0.2, under review.
 
 - Version 0 imported the 35 concept candidates found while mapping the project for its closure
   (2026-11-20), as they were found and written in English. Their canonical names are not chosen
@@ -22,6 +22,14 @@ Version 0.1, under review.
   their names on 2026-11-28, so each of these cards is accepted, with its one canonical name.
   The same acceptance amends three cards of version 0 (evidence channel, donor set, target
   population) and settles where a method that combines families belongs (method family).
+- Version 0.2 places the rungs of the ladder. A rung is a concept card that carries a ladder
+  order (an integer spaced by ten), a display position (such as 2b) and the family of its
+  method; the ladder is the cards that carry an order, sorted by it. It adds the nine rung
+  cards that had none (GO term frequency, own annotations, top-hit identity, homology vote,
+  nearest neighbour, neighbourhood vote, recipe across language models, own-annotation ranker,
+  segment encoder), accepts the count map's name, and gives the knowledge category and the
+  aspect their descriptive values, the codes PROTEA uses today kept as current names. The
+  author accepted these names and the families on 2026-11-28.
 - Components and relations are defined in the schema and not filled yet.
 
 ## What is here

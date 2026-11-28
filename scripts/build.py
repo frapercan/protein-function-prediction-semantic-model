@@ -87,7 +87,25 @@ def skos_turtle(model: dict) -> str:
             g.add((node, MODEL.external_match, Literal(c["external_match"])))
         g.add((node, MODEL.status, Literal(c["status"])))
         g.add((node, MODEL.top_category, Literal(c["top_category"])))
+        for slot in RUNG_SLOTS:
+            if slot in c:
+                g.add((node, MODEL[slot], Literal(c[slot])))
     return g.serialize(format="turtle")
+
+
+#: The slots that place a rung card in the literature ladder.
+RUNG_SLOTS = ("ladder_order", "ladder_position", "method_family")
+
+
+def rung_line(c: dict) -> str | None:
+    """The glossary line that places a rung card in the ladder, or None for any other card."""
+    if "ladder_order" not in c:
+        return None
+    family = c.get("method_family") or "none (no method of its own)"
+    return (
+        f"- **Rung:** {c['ladder_position']} of the literature ladder (order {c['ladder_order']}); "
+        f"method family: {family}"
+    )
 
 
 def status_note(concepts: list[dict]) -> list[str]:
@@ -125,6 +143,8 @@ def glossary(model: dict) -> str:
         if len(c["candidate_names"]) > 1 or c["candidate_names"][0] != c["label_en"]:
             lines.append("- **Candidate names:** " + "; ".join(c["candidate_names"]))
         lines.append(f"- **Top category:** {c['top_category'].replace('_', ' ')}")
+        if rung_line(c):
+            lines.append(rung_line(c))
         if c.get("values"):
             lines.append("- **Values:** " + ", ".join(f"`{v}`" for v in c["values"]))
         if c.get("examples"):

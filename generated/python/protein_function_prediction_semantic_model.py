@@ -30,7 +30,7 @@ from pydantic import (
 
 
 metamodel_version = "1.12.0"
-version = "0.0.0"
+version = "0.2.0"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -206,6 +206,9 @@ class Concept(ConfiguredBaseModel):
     deprecated_names: Optional[list[str]] = Field(default=None, description="""Names retired once the canonical name is accepted; a check refuses them.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'], 'exact_mappings': ['skos:hiddenLabel']} })
     naming_conflict: Optional[str] = Field(default=None, description="""Why the current names conflict, as the closure map found it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'], 'slot_uri': 'skos:editorialNote'} })
     review_note: Optional[str] = Field(default=None, description="""A fact found after the import that the review has to settle.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'], 'slot_uri': 'skos:editorialNote'} })
+    ladder_order: Optional[int] = Field(default=None, description="""Where a rung of the literature ladder sits in it: an integer, spaced by ten so that a later rung is inserted without renumbering the others. Only a rung card carries it, and the ladder is the cards that do, sorted by it.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Concept']} })
+    ladder_position: Optional[str] = Field(default=None, description="""The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept']} })
+    method_family: Optional[str] = Field(default=None, description="""The family of a rung's method, one of the values of the method family concept. The family is part of a method's identity, so a rung whose writers register no method of their own (the reading of an arm) carries none.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept']} })
 
     @field_validator('id')
     def pattern_id(cls, v):
@@ -217,6 +220,19 @@ class Concept(ConfiguredBaseModel):
                     raise ValueError(err_msg)
         elif isinstance(v, str) and not pattern.search(v):
             err_msg = f"Invalid id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('ladder_position')
+    def pattern_ladder_position(cls, v):
+        pattern=re.compile(r"^[0-9]+[a-z]?$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid ladder_position format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid ladder_position format: {v}"
             raise ValueError(err_msg)
         return v
 
