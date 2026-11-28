@@ -15,8 +15,8 @@ prefixes:
   prov: http://www.w3.org/ns/prov#
   dcterms: http://purl.org/dc/terms/
   protein_function_prediction: https://w3id.org/protein-function-prediction-semantic-model/
-  protein_function_prediction_slot: https://w3id.org/protein-function-prediction-semantic-model/slot/
-default_prefix: protein_function_prediction
+  protein_function_prediction_schema: https://w3id.org/protein-function-prediction-semantic-model/schema/
+default_prefix: protein_function_prediction_schema
 default_range: string
 imports:
   - linkml:types
@@ -206,18 +206,15 @@ slots:
       ladder is the cards that do, sorted by it.
     range: integer
     minimum_value: 0
-    slot_uri: protein_function_prediction_slot:ladder_order
   ladder_position:
     description: >-
       The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order.
     pattern: "^[0-9]+[a-z]?$"
-    slot_uri: protein_function_prediction_slot:ladder_position
   method_family:
     description: >-
       The family of a rung's method, one of the values of the method family concept. The family
       is part of a method's identity, so a rung whose writers register no method of their own
       (the reading of an arm) carries none.
-    slot_uri: protein_function_prediction_slot:method_family
   paths:
     description: Where the component lives, as repository paths.
     multivalued: true

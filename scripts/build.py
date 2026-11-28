@@ -32,15 +32,16 @@ SCHEMA = ROOT / "schema" / "protein_function_prediction_semantic_model.yaml"
 CONCEPTS = ROOT / "data" / "concepts.yaml"
 BASE = "https://w3id.org/protein-function-prediction-semantic-model/"
 MODEL = Namespace(BASE)
-#: The slots of the rung cards live apart from the concept IRIs (a concept is also named method_family).
-SLOT = Namespace(BASE + "slot/")
+#: The schema's own terms (classes and slots) live apart from the concept IRIs: a concept is also
+#: named method_family, and a concept must never be a property or a class.
+SCHEMA_TERMS = Namespace(BASE + "schema/")
 
 # (output path relative to the root, LinkML generator and its arguments)
 GENERATORS: list[tuple[str, list[str]]] = [
     ("generated/json_schema/protein_function_prediction_semantic_model.schema.json",
      ["gen-json-schema", "--top-class", "SemanticModel"]),
     ("generated/owl/protein_function_prediction_semantic_model.owl.ttl",
-     ["gen-owl", "--no-metadata", "--no-use-native-uris"]),
+     ["gen-owl", "--no-metadata"]),
     ("generated/python/protein_function_prediction_semantic_model.py",
      ["gen-pydantic", "--no-metadata"]),
 ]
@@ -66,7 +67,7 @@ def skos_turtle(model: dict) -> str:
     g.bind("skos", SKOS)
     g.bind("dcterms", DCTERMS)
     g.bind("protein_function_prediction", MODEL)
-    g.bind("protein_function_prediction_slot", SLOT)
+    g.bind("protein_function_prediction_schema", SCHEMA_TERMS)
     scheme = URIRef(BASE + model["id"])
     g.add((scheme, RDF.type, SKOS.ConceptScheme))
     g.add((scheme, DCTERMS.title, Literal(model["title"], lang="en")))
@@ -87,12 +88,12 @@ def skos_turtle(model: dict) -> str:
         for example in c.get("examples", []):
             g.add((node, SKOS.example, Literal(example)))
         if "external_match" in c:
-            g.add((node, MODEL.external_match, Literal(c["external_match"])))
-        g.add((node, MODEL.status, Literal(c["status"])))
-        g.add((node, MODEL.top_category, Literal(c["top_category"])))
+            g.add((node, SCHEMA_TERMS.external_match, Literal(c["external_match"])))
+        g.add((node, SCHEMA_TERMS.status, Literal(c["status"])))
+        g.add((node, SCHEMA_TERMS.top_category, Literal(c["top_category"])))
         for slot in RUNG_SLOTS:
             if slot in c:
-                g.add((node, SLOT[slot], Literal(c[slot])))
+                g.add((node, SCHEMA_TERMS[slot], Literal(c[slot])))
     return g.serialize(format="turtle")
 
 

@@ -66,7 +66,7 @@ class LinkMLMeta(RootModel):
         return key in self.root
 
 
-linkml_meta = LinkMLMeta({'default_prefix': 'protein_function_prediction',
+linkml_meta = LinkMLMeta({'default_prefix': 'protein_function_prediction_schema',
      'default_range': 'string',
      'description': 'The single versioned description of the concepts of protein '
                     'function prediction, of the components that implement or '
@@ -85,8 +85,8 @@ linkml_meta = LinkMLMeta({'default_prefix': 'protein_function_prediction',
                              'prefix_reference': 'https://w3id.org/linkml/'},
                   'protein_function_prediction': {'prefix_prefix': 'protein_function_prediction',
                                                   'prefix_reference': 'https://w3id.org/protein-function-prediction-semantic-model/'},
-                  'protein_function_prediction_slot': {'prefix_prefix': 'protein_function_prediction_slot',
-                                                       'prefix_reference': 'https://w3id.org/protein-function-prediction-semantic-model/slot/'},
+                  'protein_function_prediction_schema': {'prefix_prefix': 'protein_function_prediction_schema',
+                                                         'prefix_reference': 'https://w3id.org/protein-function-prediction-semantic-model/schema/'},
                   'prov': {'prefix_prefix': 'prov',
                            'prefix_reference': 'http://www.w3.org/ns/prov#'},
                   'skos': {'prefix_prefix': 'skos',
@@ -208,12 +208,9 @@ class Concept(ConfiguredBaseModel):
     deprecated_names: Optional[list[str]] = Field(default=None, description="""Names retired once the canonical name is accepted; a check refuses them.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'], 'exact_mappings': ['skos:hiddenLabel']} })
     naming_conflict: Optional[str] = Field(default=None, description="""Why the current names conflict, as the closure map found it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'], 'slot_uri': 'skos:editorialNote'} })
     review_note: Optional[str] = Field(default=None, description="""A fact found after the import that the review has to settle.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'], 'slot_uri': 'skos:editorialNote'} })
-    ladder_order: Optional[int] = Field(default=None, description="""Where a rung of the literature ladder sits in it: an integer, spaced by ten so that a later rung is inserted without renumbering the others. Only a rung card carries it, and the ladder is the cards that do, sorted by it.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'],
-         'slot_uri': 'protein_function_prediction_slot:ladder_order'} })
-    ladder_position: Optional[str] = Field(default=None, description="""The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'],
-         'slot_uri': 'protein_function_prediction_slot:ladder_position'} })
-    method_family: Optional[str] = Field(default=None, description="""The family of a rung's method, one of the values of the method family concept. The family is part of a method's identity, so a rung whose writers register no method of their own (the reading of an arm) carries none.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept'],
-         'slot_uri': 'protein_function_prediction_slot:method_family'} })
+    ladder_order: Optional[int] = Field(default=None, description="""Where a rung of the literature ladder sits in it: an integer, spaced by ten so that a later rung is inserted without renumbering the others. Only a rung card carries it, and the ladder is the cards that do, sorted by it.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Concept']} })
+    ladder_position: Optional[str] = Field(default=None, description="""The label a rung is shown with in the ladder, such as 2b; carried only with a ladder order.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept']} })
+    method_family: Optional[str] = Field(default=None, description="""The family of a rung's method, one of the values of the method family concept. The family is part of a method's identity, so a rung whose writers register no method of their own (the reading of an arm) carries none.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Concept']} })
 
     @field_validator('id')
     def pattern_id(cls, v):
